@@ -1,45 +1,137 @@
-<main class="about">
-  <h1>À propos de moi</h1>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>À propos – Mohamed Doumbouya</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .about-container {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
 
-  <section>
-    <h2>🎓 Formation</h2>
-    <p>
-      Ingénieur en Mathématiques Appliquées (Polytech Lyon), titulaire du Master « Maths en Action » (Université Lyon 1) 
-      et d’un Mastère Spécialisé en Calcul Haute Performance & IA pour l’industrie (Mines Paris).
-    </p>
-  </section>
+    .about-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
 
-  <section>
-    <h2>💼 Parcours professionnel</h2>
-    <p>
-      Actuellement développeur calcul scientifique chez CS Group, j’optimise des outils pour la modélisation énergétique au sein du groupe Total.
-    </p>
-  </section>
+    .about-header h1 {
+      font-size: 2rem;
+      color: #0077cc;
+    }
 
-  <section>
-    <h2>🧠 Compétences techniques</h2>
-    <ul>
-      <li>Python, C++, Fortran</li>
-      <li>Modélisation mathématique & EDP</li>
-      <li>Calcul parallèle (OpenMP, CUDA), HPC</li>
-    </ul>
-  </section>
+    .about-intro {
+      background-color: #f0f4f7;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 3rem;
+    }
 
-  <section>
-    <h2>📚 Centres d’intérêt</h2>
-    <p>
-      Passionné par la philosophie, l’histoire de l’Afrique, la géopolitique et les grands courants de pensée. J’aime réfléchir au croisement entre science, société et humanité.
-    </p>
-  </section>
+    .timeline {
+      border-left: 3px solid #0077cc;
+      padding-left: 1.5rem;
+      margin-bottom: 3rem;
+    }
 
-  <section>
-    <h2>⚽️ Une autre passion</h2>
-    <p>
-      Grand fan du FC Barcelone, j’admire leur jeu collectif et esthétique, reflet de ma propre approche de la rigueur scientifique avec élégance.
-    </p>
-  </section>
-</main>
-    <footer>
-        <p>© 2025 Mohamed Doumbouya</p>
-        <p>
-        <a href="
+    .timeline-entry {
+      margin-bottom: 1.5rem;
+    }
+
+    .timeline-entry h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      color: #0077cc;
+    }
+
+    .timeline-entry span {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .passion-section h2 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .passion-section p {
+      color: #444;
+    }
+
+    @media (max-width: 768px) {
+      .about-container {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="brand"><a href="index.html">Mohamed <span class="highlight">Doumbouya</span></a></div>
+    <nav>
+      <a href="about.html" class="active">À propos</a>
+      <a href="projects.html">Projets</a>
+      <a href="blog.html">Blog</a>
+      <a href="cv.html">CV</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="about-container">
+
+    <div class="about-header">
+      <h1>À propos de moi</h1>
+    </div>
+
+    <div class="about-intro">
+      <p>
+        Je suis ingénieur en Mathématiques Appliquées, diplômé de Polytech Lyon, titulaire d’un Master « Maths en action » de l’Université Lyon 1, et d’un Mastère Spécialisé en Calcul Haute Performance & IA (Mines Paris).
+        Passionné par les sciences du calcul, les équations différentielles et la modélisation, j’ai à cœur de mettre les mathématiques au service de l’industrie et de l’innovation.
+      </p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-entry">
+        <h3>CS Group – Développeur calcul scientifique</h3>
+        <span>Depuis 2023</span>
+        <p>Optimisation d'outils de modélisation énergétique pour Total. Développement HPC en C++ et Python.</p>
+      </div>
+
+      <div class="timeline-entry">
+        <h3>Mastère Spécialisé – Mines Paris</h3>
+        <span>2022 – 2023</span>
+        <p>Calcul haute performance & IA pour l’industrie : CUDA, OpenMP, simulation multi-échelle.</p>
+      </div>
+
+      <div class="timeline-entry">
+        <h3>Master Maths en Action – Université Lyon 1</h3>
+        <span>2021 – 2022</span>
+        <p>Modélisation par EDP, méthodes numériques, applications industrielles et environnementales.</p>
+      </div>
+
+      <div class="timeline-entry">
+        <h3>Diplôme d’ingénieur – Polytech Lyon</h3>
+        <span>2018 – 2021</span>
+        <p>Mathématiques appliquées, modélisation, programmation scientifique.</p>
+      </div>
+    </div>
+
+    <div class="passion-section">
+      <h2>Ce qui m’anime</h2>
+      <p>
+        Au-delà des mathématiques, je lis beaucoup – notamment de la philosophie et des essais sur l’histoire de l’Afrique. Je suis curieux de comprendre les dynamiques politiques et culturelles qui façonnent nos sociétés.
+        J’aime aussi écrire, raisonner, et confronter les idées à travers mon blog.
+      </p>
+      <p>
+        Et bien sûr, je suis un passionné du FC Barcelone : pas seulement pour les trophées, mais pour une vision du jeu fondée sur l’intelligence collective, l’esthétique et la précision — une belle métaphore du travail scientifique bien fait.
+      </p>
+    </div>
+  </main>
+
+</body>
+</html>
