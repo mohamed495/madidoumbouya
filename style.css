@@ -1,8 +1,10 @@
+/* ======= BASE ======= */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: #f9f9f9;
-  color: #333;
+  background: var(--bg, #f9f9f9);
+  color: var(--text, #333);
+  transition: background 0.3s, color 0.3s;
 }
 
 a {
@@ -10,36 +12,50 @@ a {
   color: inherit;
 }
 
+/* ======= NAVBAR ======= */
 .navbar {
+  background-color: #f8f9fa;
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.2rem 2rem;
-  background-color: #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.brand {
-  font-size: 1.6rem;
-  font-weight: bold;
+.navbar .brand a {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0077cc;
+  text-decoration: none;
 }
 
-.highlight {
-  color: #0066cc;
+.brand .highlight {
+  color: #333;
 }
 
-.navbar nav a {
+.navbar nav a,
+.nav-links a {
   margin: 0 1rem;
+  color: #444;
   font-weight: 500;
-  color: #444;
+  transition: color 0.2s ease;
 }
 
-.navbar .icons a {
-  margin-left: 1rem;
-  color: #444;
-  font-size: 1.2rem;
+.navbar nav a:hover,
+.nav-links a:hover {
+  color: #0077cc;
 }
 
+nav a.active {
+  color: var(--link, #0077cc);
+  font-weight: bold;
+  border-bottom: 2px solid var(--link, #0077cc);
+}
+
+/* ======= HERO ======= */
 .hero {
   text-align: center;
   padding: 4rem 2rem 2rem;
@@ -67,48 +83,27 @@ a {
   margin: auto;
 }
 
-.about {
+/* ======= BIO / ABOUT ======= */
+.bio, .about {
   max-width: 800px;
   margin: 3rem auto;
   padding: 0 1.5rem;
-  line-height: 1.7;
-}
-
-.about h2 {
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-footer {
-  text-align: center;
-  font-size: 0.9rem;
-  color: #888;
-  padding: 2rem 1rem;
-  margin-top: 4rem;
-  border-top: 1px solid #ddd;
-}
-
-
-.bio {
-  max-width: 800px;
-  margin: 3rem auto;
-  padding: 0 1rem;
   line-height: 1.8;
+  text-align: justify;
 }
 
-.bio h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
+.bio h2, .about h2 {
   text-align: center;
+  margin-bottom: 1.5rem;
   color: #0066cc;
+  font-size: 2rem;
 }
 
 .bio p {
   margin-bottom: 1.5rem;
-  text-align: justify;
 }
 
+/* ======= BUTTON ======= */
 .btn {
   background-color: #0066cc;
   color: white;
@@ -123,72 +118,19 @@ footer {
   background-color: #004a99;
 }
 
-.navbar {
-  background-color: #f8f9fa;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.nav-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-
-.brand a {
-  font-size: 1rem;       /* taille réduite */
-  font-weight: 600;
-  text-decoration: none;
-  color: #0077cc;
-
-
-.brand .highlight {
-  color: #333;
-}
-
-.nav-links a {
-  margin-left: 1.5rem;
-  text-decoration: none;
-  color: #444;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.nav-links a:hover {
-  color: #0077cc;
-}
-
-/* Thème clair/sombre */
+/* ======= THEME ======= */
 :root {
   --bg: #ffffff;
   --text: #000000;
   --link: #0077cc;
 }
-body {
-  background-color: var(--bg);
-  color: var(--text);
-  transition: background 0.3s, color 0.3s;
-}
+
 .dark-mode {
   --bg: #121212;
   --text: #f0f0f0;
   --link: #66aaff;
 }
 
-/* Lien actif */
-nav a.active {
-  color: var(--link);
-  font-weight: bold;
-  border-bottom: 2px solid var(--link);
-}
-
-/* Bouton thème */
 .toggle-theme {
   position: fixed;
   top: 1rem;
@@ -202,6 +144,7 @@ nav a.active {
   z-index: 1000;
 }
 
+/* ======= IMAGE GRID ======= */
 .image-grid {
   display: flex;
   flex-wrap: wrap;
@@ -238,16 +181,7 @@ nav a.active {
   line-height: 1.4;
 }
 
-.image-item a {
-  color: #0077cc;
-  text-decoration: none;
-}
-
-.image-item a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive (stacked on small screen) */
+/* ======= RESPONSIVE ======= */
 @media (max-width: 768px) {
   .image-grid {
     flex-direction: column;
@@ -264,6 +198,7 @@ nav a.active {
   }
 }
 
+/* ======= BLOG LIST ======= */
 .blog-list {
   max-width: 800px;
   margin: 2rem auto;
@@ -299,6 +234,7 @@ nav a.active {
   font-size: 0.9rem;
 }
 
+/* ======= CONTACT FOOTER ======= */
 .contact-footer {
   text-align: center;
   padding: 2rem;
@@ -312,53 +248,11 @@ nav a.active {
 }
 
 .contact-icons {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
-.contact-icons a {
-  color: #333;
-  font-size: 1.6rem;
-  transition: color 0.3s ease;
-}
-
-.contact-icons a:hover {
-  color: #0077cc;
-}
-
-.contact-icons {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.contact-icons a {
-  color: #333;
-  font-size: 1rem;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.contact-icons a i {
-  margin-right: 0.5rem;
-  font-size: 1.2rem;
-  vertical-align: middle;
-}
-
-.contact-icons a:hover {
-  color: #0077cc;
-}
-
-.contact-icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
   margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 
@@ -371,4 +265,14 @@ nav a.active {
 
 .contact-icons img.contact-logo:hover {
   transform: scale(1.1);
+}
+
+/* ======= FOOTER ======= */
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+  padding: 2rem 1rem;
+  margin-top: 4rem;
+  border-top: 1px solid #ddd;
 }
