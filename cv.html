@@ -1,10 +1,79 @@
-<h1>Mon CV</h1>
-<p>Vous pouvez consulter mon CV directement ici ou le télécharger en PDF.</p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mon CV – Mamady Nabé</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .cv-section {
+      max-width: 850px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
 
-<!-- Affichage du CV PDF dans la page -->
-<iframe src="cv.pdf" width="100%" height="600px" style="border:1px solid #ccc;"></iframe>
+    .cv-section h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
 
-<!-- Lien de téléchargement -->
-<p style="margin-top: 1rem;">
-  <a href="cv.pdf" download class="btn">📥 Télécharger le CV (PDF)</a>
-</p>
+    .cv-section p {
+      text-align: center;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .cv-frame {
+      margin-top: 2rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+
+    .download-btn {
+      display: block;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .download-btn a {
+      background-color: #0077cc;
+      color: white;
+      padding: 0.8rem 1.6rem;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .download-btn a:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="cv-section">
+    <h1>Mon CV</h1>
+    <p>Consultez mon CV ci-dessous ou téléchargez le en PDF.</p>
+
+    <div class="cv-frame">
+      <iframe src="cv.pdf" title="CV de Mamady Nabé"></iframe>
+    </div>
+
+    <div class="download-btn">
+      <a href="cv.pdf" download>📄 Télécharger le CV (PDF)</a>
+    </div>
+  </main>
+
+</body>
+</html>
