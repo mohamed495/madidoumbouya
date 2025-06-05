@@ -1,139 +1,45 @@
+<main class="about">
+  <h1>À propos de moi</h1>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>À propos – Mohamed Doumbouya</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      background-color: #fefefe;
-      color: #1a1a1a;
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      transition: background 0.3s, color 0.3s;
-    }
+  <section>
+    <h2>🎓 Formation</h2>
+    <p>
+      Ingénieur en Mathématiques Appliquées (Polytech Lyon), titulaire du Master « Maths en Action » (Université Lyon 1) 
+      et d’un Mastère Spécialisé en Calcul Haute Performance & IA pour l’industrie (Mines Paris).
+    </p>
+  </section>
 
-    .dark-mode {
-      background-color: #121212;
-      color: #f0f0f0;
-    }
+  <section>
+    <h2>💼 Parcours professionnel</h2>
+    <p>
+      Actuellement développeur calcul scientifique chez CS Group, j’optimise des outils pour la modélisation énergétique au sein du groupe Total.
+    </p>
+  </section>
 
-    .navbar {
-      background-color: #ffffff;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      flex-wrap: wrap;
-    }
+  <section>
+    <h2>🧠 Compétences techniques</h2>
+    <ul>
+      <li>Python, C++, Fortran</li>
+      <li>Modélisation mathématique & EDP</li>
+      <li>Calcul parallèle (OpenMP, CUDA), HPC</li>
+    </ul>
+  </section>
 
-    .brand {
-      font-weight: bold;
-      font-size: 1rem;
-      color: #0077cc;
-    }
+  <section>
+    <h2>📚 Centres d’intérêt</h2>
+    <p>
+      Passionné par la philosophie, l’histoire de l’Afrique, la géopolitique et les grands courants de pensée. J’aime réfléchir au croisement entre science, société et humanité.
+    </p>
+  </section>
 
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #1a1a1a;
-      transition: color 0.3s;
-    }
-
-    nav a.active {
-      color: #0077cc;
-      font-weight: bold;
-      border-bottom: 2px solid #0077cc;
-    }
-
-    nav a:hover {
-      color: #0077cc;
-    }
-
-    .content {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem;
-      line-height: 1.6;
-      animation: fadeIn 0.8s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .toggle-theme {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: 2px solid #ccc;
-      border-radius: 20px;
-      padding: 0.4rem 1rem;
-      font-size: 1rem;
-      cursor: pointer;
-      z-index: 1000;
-    }
-  </style>
-</head>
-<body>
-  <header class="navbar">
-    <div class="brand"><a href="index.html">Mohamed <span class="highlight">DOUMBOUYA</span></a></div>
-    <nav>
-      <a href="about.html">À propos</a>
-      <a href="projects.html">Projets</a>
-      <a href="blog.html">Blog</a>
-      <a href="cv.html">CV</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
-  </header>
-
-  <button class="toggle-theme" onclick="toggleDarkMode()">🌙</button>
-
-  <main class="content">
-    <h1>Qui suis-je</h1>
-
-    <p>Je suis ingénieur en Mathématiques Appliquées et Modélisation, diplômé de Polytech Lyon, titulaire d’un Master "Maths en Action" de l’Université Claude Bernard Lyon 1, ainsi que d’un Mastère Spécialisé en Calcul Haute Performance & Intelligence Artificielle pour l’industrie de l'école des Mines de Paris.</p>
-
-    <p>Mon parcours m’a permis d’explorer des domaines variés comme la modélisation par équations différentielles, l’analyse numérique, le calcul scientifique parallèle (CPU et GPU), ou encore l’optimisation numérique. J’ai aussi développé des compétences solides en programmation, principalement en Python, ainsi qu’en C++ et sur des architectures de calcul haute performance.</p>
-
-    <p>Je suis actuellement Développeur Calcul scientifique C++/Python chez CS Group, je travaille sur l’optimisation des systèmes énergétiques du Group Total en vue d’une énergie décarbonée.</p>
-
-    <p>En dehors de l’aspect technique, je suis une personne curieuse, avec une vraie appétence pour la philosophie, l'histoire (de l’Afrique souvent) et l’actualité politique. Ces lectures nourrissent ma réflexion et mon regard sur le monde, au-delà du champ scientifique.</p>
-
-    <p>Enfin, je suis un grand passionné de football — et un fan inconditionnel du FC Barcelone. J’admire ce club pour sa vision du jeu faite d’élégance, d’intelligence collective et de beauté dans la construction. Un style qui, d’une certaine façon, résonne avec ma manière d’aborder la science et la technique.</p>
-
-    <p>N’hésitez pas à me contacter si vous souhaitez échanger sur des sujets techniques, philosophiques ou sportifs !</p>
-  </main>
-
-  <script>
-    const links = document.querySelectorAll('nav a');
-    links.forEach(link => {
-      if (link.href === window.location.href) {
-        link.classList.add('active');
-      }
-    });
-
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-    }
-
-    window.onload = () => {
-      if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-mode');
-      }
-    };
-  </script>
-</body>
-</html>
+  <section>
+    <h2>⚽️ Une autre passion</h2>
+    <p>
+      Grand fan du FC Barcelone, j’admire leur jeu collectif et esthétique, reflet de ma propre approche de la rigueur scientifique avec élégance.
+    </p>
+  </section>
+</main>
+    <footer>
+        <p>© 2025 Mohamed Doumbouya</p>
+        <p>
+        <a href="

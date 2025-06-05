@@ -276,3 +276,26 @@ footer {
   margin-top: 4rem;
   border-top: 1px solid #ddd;
 }
+
+.about h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #0077cc;
+}
+
+.about section {
+  margin-bottom: 2rem;
+}
+
+.about h2 {
+  color: #444;
+  font-size: 1.3rem;
+  margin-bottom: 0.6rem;
+}
+
+.about ul {
+  padding-left: 1.2rem;
+  list-style-type: disc;
+  color: #555;
+}
