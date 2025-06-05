@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mohamed Doumbouya</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     .hero {
       text-align: center;
@@ -35,11 +34,22 @@
       max-width: 1000px;
     }
 
-    .image-row img {
-      width: 300px;
+    .image-item {
+      text-align: center;
+      max-width: 300px;
+    }
+
+    .image-item img {
+      width: 100%;
       height: auto;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .image-item p {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: #444;
     }
 
     footer.contact-footer {
@@ -58,17 +68,25 @@
       margin-top: 1rem;
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
     .contact-icons a {
-      color: #333;
-      font-size: 1.6rem;
-      transition: color 0.3s ease;
+      display: inline-block;
     }
 
-    .contact-icons a:hover {
-      color: #0077cc;
+    .contact-logo {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      opacity: 0.8;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .contact-logo:hover {
+      transform: scale(1.1);
+      opacity: 1;
     }
   </style>
 </head>
@@ -84,11 +102,6 @@
       <a href="cv.html">CV</a>
       <a href="#contact">Contact</a>
     </nav>
-    <div class="icons">
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-      <a href="#"><i class="fas fa-envelope"></i></a>
-    </div>
   </header>
 
   <!-- Hero -->
@@ -102,34 +115,43 @@
 
     <!-- Images illustratives -->
     <div class="image-row">
-      <img src="https://apmonitor.com/do/uploads/Main/wave_3D_PDE.png" alt="EDP – Source: APMonitor" />
-      <img src="https://c8.alamy.com/compfr/2apa9g8/pile-de-livres-avec-un-livre-ouvert-et-un-lecteur-de-livres-electroniques-dans-une-grande-bibliotheque-2apa9g8.jpg" alt="Lectures" />
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST9ycvrcD0Y5V8oCYeY3sw1qNKzKOVajrJww&s" alt="HPC" />
+      <div class="image-item">
+        <img src="https://apmonitor.com/do/uploads/Main/wave_3D_PDE.png" alt="EDP" />
+        <p>🔢 Modélisation / EDP</p>
+      </div>
+
+      <div class="image-item">
+        <img src="https://c8.alamy.com/compfr/2apa9g8/pile-de-livres-avec-un-livre-ouvert-et-un-lecteur-de-livres-electroniques-dans-une-grande-bibliotheque-2apa9g8.jpg" alt="Lecture" />
+        <p>📚 Lectures & Philosophie</p>
+      </div>
+
+      <div class="image-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST9ycvrcD0Y5V8oCYeY3sw1qNKzKOVajrJww&s" alt="HPC" />
+        <p>💻 Calcul haute performance (HPC)</p>
+      </div>
     </div>
   </section>
 
   <!-- Contact -->
   <footer class="contact-footer" id="contact">
-  <h2>📬 Me contacter</h2>
-  <p>N'hésitez pas à me suivre ou à m’écrire :</p>
+    <h2>📬 Me contacter</h2>
+    <p>N'hésitez pas à me suivre ou à m’écrire :</p>
 
-  <div class="contact-icons">
-  <a href="mailto:mohamed@example.com" title="Email">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Mail_%28iOS%29.svg/1024px-Mail_%28iOS%29.svg.png" class="contact-logo" alt="Email">
-  </a>
-  <a href="https://github.com/ton-profil" target="_blank" title="GitHub">
-    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" class="contact-logo" alt="GitHub">
-  </a>
-  <a href="https://www.linkedin.com/in/ton-profil" target="_blank" title="LinkedIn">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/960px-LinkedIn_logo_initials.png" class="contact-logo" alt="LinkedIn">
-  </a>
-  <a href="https://twitter.com/ton_profil" target="_blank" title="Twitter">
-    <img src="https://upload.wikimedia.org/wikipedia/fr/c/c8/Twitter_Bird.svg" class="contact-logo" alt="Twitter">
-  </a>
-</div>
-
-</footer>
-
+    <div class="contact-icons">
+      <a href="mailto:mohamed@example.com" title="Email">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Mail_%28iOS%29.svg/1024px-Mail_%28iOS%29.svg.png" class="contact-logo" alt="Email">
+      </a>
+      <a href="https://github.com/ton-profil" target="_blank" title="GitHub">
+        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" class="contact-logo" alt="GitHub">
+      </a>
+      <a href="https://www.linkedin.com/in/ton-profil" target="_blank" title="LinkedIn">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/960px-LinkedIn_logo_initials.png" class="contact-logo" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/ton_profil" target="_blank" title="Twitter">
+        <img src="https://upload.wikimedia.org/wikipedia/fr/c/c8/Twitter_Bird.svg" class="contact-logo" alt="Twitter">
+      </a>
+    </div>
+  </footer>
 
 </body>
 </html>
