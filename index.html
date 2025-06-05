@@ -3,179 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mohamed DOUMBOUYA</title>
+  <title>Mohamed Doumbouya</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
-    :root {
-      --bg: #fefefe;
-      --text: #1a1a1a;
-      --link: #0077cc;
-      --accent: #005fa3;
-    }
-
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .dark-mode {
-      --bg: #121212;
-      --text: #f0f0f0;
-      --link: #66aaff;
-    }
-
-    nav a.active {
-      color: var(--link);
-      font-weight: bold;
-      border-bottom: 2px solid var(--link);
-    }
-
-    .toggle-theme {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: 2px solid #ccc;
-      border-radius: 20px;
-      padding: 0.4rem 1rem;
-      font-size: 1rem;
-      cursor: pointer;
-      z-index: 1000;
-    }
-
-    .navbar {
-      background-color: #ffffff;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      flex-wrap: wrap;
-    }
-
-    .brand {
-      font-weight: bold;
-      font-size: 1rem;
-      color: var(--link);
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--text);
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--link);
-    }
-
-    .icons a {
-      margin-left: 0.8rem;
-      color: var(--text);
-      transition: color 0.3s;
-    }
-
-    .icons a:hover {
-      color: var(--link);
-    }
-
     .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem;
       text-align: center;
-    }
-
-    .profile-pic {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin-bottom: 1.5rem;
+      padding: 3rem 1rem;
     }
 
     .hero h1 {
-      font-size: 2rem;
+      font-size: 2.2rem;
       margin-bottom: 1rem;
     }
 
-    .image-grid {
+    .welcome {
+      font-size: 1.1rem;
+      color: #555;
+      margin-top: 1rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .image-row {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 2rem;
-      margin: 3rem auto;
+      gap: 1.5rem;
+      margin: 2rem auto;
       max-width: 1000px;
-      padding: 0 1rem;
     }
 
-    .image-item {
-      flex: 1 1 300px;
+    .image-row img {
+      width: 300px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    footer.contact-footer {
       text-align: center;
-      max-width: 300px;
+      padding: 2rem;
+      margin-top: 3rem;
+      background-color: #f8f8f8;
+      border-top: 1px solid #ddd;
     }
 
-    .image-item img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
+    .contact-footer h2 {
+      margin-bottom: 0.5rem;
     }
 
-    .image-item img:hover {
-      transform: scale(1.05);
+    .contact-icons {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
     }
 
-    .image-item p {
-      margin-top: 0.6rem;
-      font-size: 0.95rem;
-      color: #444;
-      line-height: 1.4;
+    .contact-icons a {
+      color: #333;
+      font-size: 1.6rem;
+      transition: color 0.3s ease;
     }
 
-    .image-item a {
+    .contact-icons a:hover {
       color: #0077cc;
-      text-decoration: none;
-    }
-
-    .image-item a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .hero {
-        padding: 1rem;
-      }
-      .image-grid {
-        flex-direction: column;
-        align-items: center;
-      }
-      .image-item {
-        max-width: 90%;
-      }
-      .image-item img {
-        height: auto;
-        max-height: 250px;
-      }
     }
   </style>
 </head>
@@ -183,13 +76,13 @@
 
   <!-- Navigation -->
   <header class="navbar">
-    <div class="brand">Mohamed<span class="highlight">Doumbouya</span></div>
+    <div class="brand">Mohamed <span class="highlight">Doumbouya</span></div>
     <nav>
       <a href="about.html">À propos</a>
       <a href="projects.html">Projets</a>
       <a href="blog.html">Blog</a>
       <a href="cv.html">CV</a>
-      <a href="contact.html">Contact</a>
+      <a href="#contact">Contact</a>
     </nav>
     <div class="icons">
       <a href="#"><i class="fab fa-github"></i></a>
@@ -198,77 +91,43 @@
     </div>
   </header>
 
-  <button class="toggle-theme" onclick="toggleDarkMode()">🌙</button>
-
   <!-- Hero -->
   <section class="hero">
     <img src="images/mohamed.jpg" alt="Mohamed Doumbouya" class="profile-pic" />
     <h1>Bienvenue 👋</h1>
-    <p style="max-width: 700px; margin: 1rem auto; font-size: 1.1rem; line-height: 1.6;">
-      Bienvenue sur ma page personnelle où je partage mes projets scientifiques et informatiques, 
-      ainsi que mes réflexions et lectures à travers un blog libre et curieux.
+    <p class="welcome">
+      Bienvenue sur ma page personnelle où je partage mes projets scientifiques et informatiques,
+      ainsi que mes lectures et réflexions à travers un blog engagé et curieux.
     </p>
-  </section>
 
-  <!-- Image Grid Section -->
-  <section class="image-grid">
-    <!-- EDP -->
-    <div class="image-item">
-      <img src="https://apmonitor.com/do/uploads/Main/wave_3D_PDE.png" alt="Surface d'une EDP en 3D">
-      <p>
-        Modélisation – Équations différentielles<br>
-        <small>source : <a href="https://apmonitor.com/" target="_blank">apmonitor.com</a></small>
-      </p>
-    </div>
-    <!-- HPC -->
-    <div class="image-item">
-      <img src="https://miro.medium.com/v2/resize:fit:1000/1*v1icYZnjM6tXmXe1tRXZjA.jpeg" alt="Calcul Haute Performance">
-      <p>
-        Calcul Haute Performance (HPC)<br>
-        <small>source : <a href="https://medium.com/" target="_blank">Medium.com</a></small>
-      </p>
-    </div>
-    <!-- Livres -->
-    <div class="image-item">
-      <img src="https://c8.alamy.com/compfr/2apa9g8/pile-de-livres-avec-un-livre-ouvert-et-un-lecteur-de-livres-electroniques-dans-une-grande-bibliotheque-2apa9g8.jpg" alt="Pile de livres">
-      <p>
-        Lectures et réflexions<br>
-        <small>source : <a href="https://www.alamy.com/fr/image-details-popup.asp?imageid=2APA9G8" target="_blank">Alamy.com</a></small>
-      </p>
+    <!-- Images illustratives -->
+    <div class="image-row">
+      <img src="https://apmonitor.com/do/uploads/Main/wave_3D_PDE.png" alt="EDP – Source: APMonitor" />
+      <img src="https://c8.alamy.com/compfr/2apa9g8/pile-de-livres-avec-un-livre-ouvert-et-un-lecteur-de-livres-electroniques-dans-une-grande-bibliotheque-2apa9g8.jpg" alt="Lectures" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST9ycvrcD0Y5V8oCYeY3sw1qNKzKOVajrJww&s" alt="HPC" />
     </div>
   </section>
 
-  <script>
-    // Lien actif dans la navbar
-    const links = document.querySelectorAll('nav a');
-    links.forEach(link => {
-      if (link.href === window.location.href) {
-        link.classList.add('active');
-      }
-    });
+  <!-- Contact -->
+  <footer class="contact-footer" id="contact">
+    <h2>📬 Me contacter</h2>
+    <p>N'hésitez pas à me suivre ou à m’écrire :</p>
 
-    // Scroll fluide
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
+    <div class="contact-icons">
+      <a href="mailto:mohamed@example.com" title="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="https://github.com/ton-profil" target="_blank" title="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://linkedin.com/in/ton-profil" target="_blank" title="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://twitter.com/ton-profil" target="_blank" title="Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </div>
+  </footer>
 
-    // Mode sombre
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-    }
-
-    window.onload = () => {
-      if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-mode');
-      }
-    };
-  </script>
 </body>
 </html>
