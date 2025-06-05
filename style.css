@@ -163,3 +163,41 @@ footer {
 .nav-links a:hover {
   color: #0077cc;
 }
+
+/* Thème clair/sombre */
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --link: #0077cc;
+}
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+.dark-mode {
+  --bg: #121212;
+  --text: #f0f0f0;
+  --link: #66aaff;
+}
+
+/* Lien actif */
+nav a.active {
+  color: var(--link);
+  font-weight: bold;
+  border-bottom: 2px solid var(--link);
+}
+
+/* Bouton thème */
+.toggle-theme {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  padding: 0.4rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 1000;
+}
