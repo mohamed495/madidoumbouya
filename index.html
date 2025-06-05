@@ -112,6 +112,51 @@
       margin-bottom: 1rem;
     }
 
+    .image-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 3rem auto;
+      max-width: 1000px;
+      padding: 0 1rem;
+    }
+
+    .image-item {
+      flex: 1 1 300px;
+      text-align: center;
+      max-width: 300px;
+    }
+
+    .image-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .image-item img:hover {
+      transform: scale(1.05);
+    }
+
+    .image-item p {
+      margin-top: 0.6rem;
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.4;
+    }
+
+    .image-item a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+
+    .image-item a:hover {
+      text-decoration: underline;
+    }
+
     @media (max-width: 768px) {
       nav {
         flex-direction: column;
@@ -119,6 +164,17 @@
       }
       .hero {
         padding: 1rem;
+      }
+      .image-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+      .image-item {
+        max-width: 90%;
+      }
+      .image-item img {
+        height: auto;
+        max-height: 250px;
       }
     }
   </style>
@@ -148,42 +204,38 @@
   <section class="hero">
     <img src="images/mohamed.jpg" alt="Mohamed Doumbouya" class="profile-pic" />
     <h1>Bienvenue 👋</h1>
-    <p style="max-width: 700px; margin: 1rem auto; font-size: 1.1rem; line-height: 1.6;"></p>
-    Ce site est le reflet de mes intérêts : la science appliquée, le code, mais aussi la pensée, 
-    les lectures, et tout ce qui alimente la réflexion. Bienvenue dans mon univers.
-  </p>
+    <p style="max-width: 700px; margin: 1rem auto; font-size: 1.1rem; line-height: 1.6;">
+      Bienvenue sur ma page personnelle où je partage mes projets scientifiques et informatiques, 
+      ainsi que mes réflexions et lectures à travers un blog libre et curieux.
+    </p>
+  </section>
 
+  <!-- Image Grid Section -->
   <section class="image-grid">
-  <!-- EDP -->
-  <div class="image-item">
-    <img src="https://apmonitor.com/do/uploads/Main/wave_3D_PDE.png" alt="Surface d'une EDP en 3D">
-    <p>
-      Modélisation – Équations différentielles<br>
-      <small>source : <a href="https://apmonitor.com/" target="_blank">apmonitor.com</a></small>
-    </p>
-  </div>
-
-  <!-- HPC -->
-  <div class="image-item">
-    <img src="https://miro.medium.com/v2/resize:fit:1000/1*v1icYZnjM6tXmXe1tRXZjA.jpeg" alt="Calcul Haute Performance">
-    <p>
-      Calcul Haute Performance (HPC)<br>
-      <small>source : <a href="https://medium.com/" target="_blank">Medium.com</a></small>
-    </p>
-  </div>
-
-  <!-- Livres -->
-  <div class="image-item">
-    <img src="https://c8.alamy.com/compfr/2apa9g8/pile-de-livres-avec-un-livre-ouvert-et-un-lecteur-de-livres-electroniques-dans-une-grande-bibliotheque-2apa9g8.jpg" alt="Pile de livres">
-    <p>
-      Lectures et réflexions<br>
-      <small>source : <a href="https://www.alamy.com/fr/image-details-popup.asp?imageid=2APA9G8" target="_blank">Alamy.com</a></small>
-    </p>
-  </div>
-</section>
-
-
-
+    <!-- EDP -->
+    <div class="image-item">
+      <img src="https://apmonitor.com/do/uploads/Main/wave_3D_PDE.png" alt="Surface d'une EDP en 3D">
+      <p>
+        Modélisation – Équations différentielles<br>
+        <small>source : <a href="https://apmonitor.com/" target="_blank">apmonitor.com</a></small>
+      </p>
+    </div>
+    <!-- HPC -->
+    <div class="image-item">
+      <img src="https://miro.medium.com/v2/resize:fit:1000/1*v1icYZnjM6tXmXe1tRXZjA.jpeg" alt="Calcul Haute Performance">
+      <p>
+        Calcul Haute Performance (HPC)<br>
+        <small>source : <a href="https://medium.com/" target="_blank">Medium.com</a></small>
+      </p>
+    </div>
+    <!-- Livres -->
+    <div class="image-item">
+      <img src="https://c8.alamy.com/compfr/2apa9g8/pile-de-livres-avec-un-livre-ouvert-et-un-lecteur-de-livres-electroniques-dans-une-grande-bibliotheque-2apa9g8.jpg" alt="Pile de livres">
+      <p>
+        Lectures et réflexions<br>
+        <small>source : <a href="https://www.alamy.com/fr/image-details-popup.asp?imageid=2APA9G8" target="_blank">Alamy.com</a></small>
+      </p>
+    </div>
   </section>
 
   <script>
