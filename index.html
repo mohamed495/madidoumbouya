@@ -8,14 +8,18 @@
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     :root {
-      --bg: #ffffff;
-      --text: #000000;
+      --bg: #fefefe;
+      --text: #1a1a1a;
       --link: #0077cc;
+      --accent: #005fa3;
     }
 
     body {
       background-color: var(--bg);
       color: var(--text);
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
       transition: background 0.3s, color 0.3s;
     }
 
@@ -42,6 +46,96 @@
       font-size: 1rem;
       cursor: pointer;
       z-index: 1000;
+    }
+
+    .navbar {
+      background-color: #ffffff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-weight: bold;
+      font-size: 1rem;
+      color: var(--link);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--link);
+    }
+
+    .icons a {
+      margin-left: 0.8rem;
+      color: var(--text);
+      transition: color 0.3s;
+    }
+
+    .icons a:hover {
+      color: var(--link);
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .bio {
+      max-width: 800px;
+      padding: 1rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .bio p {
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero {
+        padding: 1rem;
+      }
     }
   </style>
 </head>
@@ -72,28 +166,12 @@
     <h1>Bienvenue 👋</h1>
     <section class="bio">
       <h2>À propos de moi</h2>
-
-      <p>
-        Je suis ingénieur en Mathématiques Appliquées et Modélisation, diplômé de Polytech Lyon, titulaire d’un Master "Maths en Action" de l’Université Claude Bernard Lyon 1, ainsi que d’un Mastère Spécialisé en Calcul Haute Performance & Intelligence Artificielle pour l’industrie de l'école des Mines de Paris.
-      </p>
-      <p>
-        Mon parcours m’a permis d’explorer des domaines variés comme la modélisation par équations différentielles, l’analyse numérique, le calcul scientifique parallèle (CPU et GPU), ou encore l’optimisation numérique. J’ai aussi développé des compétences solides en programmation, principalement en Python, ainsi qu’en C++ et sur des architectures de calcul haute performance.
-      </p>
-
-      <p>
-        Je suis actuellement Développeur Calcul scientifique C++/Python chez CS Group, je travaille sur l’optimisation des systèmes énergétiques du Group Total en vue d’une énergie décarbonée.
-      </p>
-
-      <p>
-        En dehors de l’aspect technique, je suis une personne curieuse, avec une vraie appétence pour la philosophie, l'histoire (de l’Afrique souvent) et l’actualité politique. Ces lectures nourrissent ma réflexion et mon regard sur le monde, au-delà du champ scientifique.
-      </p>
-
-      <p>
-        Enfin, je suis un grand passionné de football — et un fan inconditionnel du FC Barcelone. J’admire ce club pour sa vision du jeu faite d’élégance, d’intelligence collective et de beauté dans la construction. Un style qui, d’une certaine façon, résonne avec ma manière d’aborder la science et la technique.
-      </p>
-      <p>
-        N’hésitez pas à me contacter si vous souhaitez échanger sur des sujets techniques, philosophiques ou sportifs !
-      </p>
+      <p>Je suis ingénieur en Mathématiques Appliquées et Modélisation, diplômé de Polytech Lyon, titulaire d’un Master "Maths en Action" de l’Université Claude Bernard Lyon 1, ainsi que d’un Mastère Spécialisé en Calcul Haute Performance & Intelligence Artificielle pour l’industrie de l'école des Mines de Paris.</p>
+      <p>Mon parcours m’a permis d’explorer des domaines variés comme la modélisation par équations différentielles, l’analyse numérique, le calcul scientifique parallèle (CPU et GPU), ou encore l’optimisation numérique. J’ai aussi développé des compétences solides en programmation, principalement en Python, ainsi qu’en C++ et sur des architectures de calcul haute performance.</p>
+      <p>Je suis actuellement Développeur Calcul scientifique C++/Python chez CS Group, je travaille sur l’optimisation des systèmes énergétiques du Group Total en vue d’une énergie décarbonée.</p>
+      <p>En dehors de l’aspect technique, je suis une personne curieuse, avec une vraie appétence pour la philosophie, l'histoire (de l’Afrique souvent) et l’actualité politique. Ces lectures nourrissent ma réflexion et mon regard sur le monde, au-delà du champ scientifique.</p>
+      <p>Enfin, je suis un grand passionné de football — et un fan inconditionnel du FC Barcelone. J’admire ce club pour sa vision du jeu faite d’élégance, d’intelligence collective et de beauté dans la construction. Un style qui, d’une certaine façon, résonne avec ma manière d’aborder la science et la technique.</p>
+      <p>N’hésitez pas à me contacter si vous souhaitez échanger sur des sujets techniques, philosophiques ou sportifs !</p>
     </section>
   </section>
 
