@@ -352,3 +352,23 @@ nav a.active {
 .contact-icons a:hover {
   color: #0077cc;
 }
+
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.contact-icons img.contact-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.contact-icons img.contact-logo:hover {
+  transform: scale(1.1);
+}
