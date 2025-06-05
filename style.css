@@ -1,23 +1,90 @@
 body {
-  font-family: sans-serif;
-  background-color: #f8f8f8;
-  color: #333;
   margin: 0;
-  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f9f9;
+  color: #333;
 }
 
-nav {
-  background-color: #222;
-  padding: 1em;
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.brand {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.highlight {
+  color: #0066cc;
+}
+
+.navbar nav a {
+  margin: 0 1rem;
+  font-weight: 500;
+  color: #444;
+}
+
+.navbar .icons a {
+  margin-left: 1rem;
+  color: #444;
+  font-size: 1.2rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 2rem 2rem;
+  background: linear-gradient(to bottom, #ffffff, #f0f4f7);
+}
+
+.profile-pic {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #0066cc;
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  margin: 0.5rem 0;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 600px;
+  margin: auto;
+}
+
+.about {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+  line-height: 1.7;
+}
+
+.about h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
-}
-
-nav a:hover {
-  text-decoration: underline;
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+  padding: 2rem 1rem;
+  margin-top: 4rem;
+  border-top: 1px solid #ddd;
 }

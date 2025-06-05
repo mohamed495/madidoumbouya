@@ -3,37 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mon Portfolio</title>
+  <title>Mamady Nabé – Développeur</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="about.html">À propos</a>
-    <a href="projects.html">Projets</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <!-- Barre de navigation -->
+  <header class="navbar">
+    <div class="brand">Mamady<span class="highlight">Nabé</span></div>
+    <nav>
+      <a href="#">Nouvelles</a>
+      <a href="#">Blog</a>
+      <a href="#">Résumé</a>
+    </nav>
+    <div class="icons">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fas fa-envelope"></i></a>
+    </div>
+  </header>
 
-  <!-- Section Hero -->
+  <!-- Section d'accueil -->
   <section class="hero">
-    <h1>Bonjour, je suis [Ton Prénom]</h1>
-    <p>Développeur web passionné, curieux, et toujours en quête d'apprentissage.</p>
-    <a href="projects.html" class="btn">Voir mes projets</a>
+    <img src="images/photo.jpg" alt="Photo de Mamady" class="profile-pic" />
+    <h1>Bienvenue 👋</h1>
+    <p class="subtitle">Je suis Mamady Nabé, passionné par la data, les systèmes embarqués et l'exploration technologique.</p>
   </section>
 
-  <!-- Section À propos rapide -->
-  <section class="about-snippet">
-    <h2>À propos de moi</h2>
-    <p>Je suis un développeur autodidacte, spécialisé dans le front-end (HTML, CSS, JS) avec un intérêt croissant pour les frameworks modernes comme React. J'aime construire des choses simples, belles et utiles.</p>
-    <a href="about.html">En savoir plus →</a>
+  <!-- Présentation -->
+  <section class="about">
+    <h2>Quelques mots sur moi</h2>
+    <p>
+      Ingénieur en informatique avec une double spécialisation en <strong>Data Science</strong> et <strong>Systèmes embarqués</strong>,
+      je suis animé par la volonté de transformer des idées complexes en solutions simples et efficaces. 
+      Mon parcours m’a amené à travailler sur des projets de maintenance prédictive, d’analyse de données, 
+      et de modélisation algorithmique.
+    </p>
+    <p>
+      J’aime autant coder que vulgariser, et je crois en l’apprentissage continu. Ce site est à la fois un portfolio, un carnet de bord, 
+      et un espace d'expression. Bienvenue dans mon univers numérique.
+    </p>
   </section>
 
-  <!-- Footer / Contact -->
-  <footer id="contact">
-    <p>Contact : <a href="mailto:tonemail@example.com">tonemail@example.com</a></p>
-    <p>© [Ton Prénom] - 2025</p>
+  <!-- Pied de page -->
+  <footer>
+    <p>&copy; 2025 Mamady Nabé • Tous droits réservés</p>
   </footer>
 
 </body>
