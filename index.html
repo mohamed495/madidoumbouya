@@ -1,18 +1,40 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <link rel="stylesheet" href="style.css">
-  <meta charset="UTF-8">
-  <title>Mon Site Personnel</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body { font-family: sans-serif; max-width: 800px; margin: auto; padding: 2rem; }
-    h1 { color: #333; }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mon Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Bienvenue sur mon site !</h1>
-  <p>Ce site est hébergé gratuitement grâce à GitHub Pages.</p>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="about.html">À propos</a>
+    <a href="projects.html">Projets</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Section Hero -->
+  <section class="hero">
+    <h1>Bonjour, je suis [Ton Prénom]</h1>
+    <p>Développeur web passionné, curieux, et toujours en quête d'apprentissage.</p>
+    <a href="projects.html" class="btn">Voir mes projets</a>
+  </section>
+
+  <!-- Section À propos rapide -->
+  <section class="about-snippet">
+    <h2>À propos de moi</h2>
+    <p>Je suis un développeur autodidacte, spécialisé dans le front-end (HTML, CSS, JS) avec un intérêt croissant pour les frameworks modernes comme React. J'aime construire des choses simples, belles et utiles.</p>
+    <a href="about.html">En savoir plus →</a>
+  </section>
+
+  <!-- Footer / Contact -->
+  <footer id="contact">
+    <p>Contact : <a href="mailto:tonemail@example.com">tonemail@example.com</a></p>
+    <p>© [Ton Prénom] - 2025</p>
+  </footer>
+
 </body>
 </html>
-
