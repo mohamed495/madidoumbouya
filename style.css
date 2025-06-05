@@ -298,3 +298,32 @@ nav a.active {
   color: #999;
   font-size: 0.9rem;
 }
+
+.contact-footer {
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+  background-color: #f8f8f8;
+  border-top: 1px solid #ddd;
+}
+
+.contact-footer h2 {
+  margin-bottom: 0.5rem;
+}
+
+.contact-icons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.contact-icons a {
+  color: #333;
+  font-size: 1.6rem;
+  transition: color 0.3s ease;
+}
+
+.contact-icons a:hover {
+  color: #0077cc;
+}
