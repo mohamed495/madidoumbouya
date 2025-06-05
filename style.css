@@ -108,3 +108,17 @@ footer {
   margin-bottom: 1.5rem;
   text-align: justify;
 }
+
+.btn {
+  background-color: #0066cc;
+  color: white;
+  padding: 0.7rem 1.4rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #004a99;
+}
