@@ -1,1 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projets – Mohamed Doumbouya</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .projects-container {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    .projects-container h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .project-card {
+      background: #f9f9f9;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: scale(1.01);
+    }
+
+    .project-card h2 {
+      margin-bottom: 0.5rem;
+      color: #0077cc;
+    }
+
+    .project-card p {
+      margin: 0.5rem 0;
+      color: #444;
+    }
+
+    .project-card a {
+      text-decoration: none;
+      color: #0077cc;
+      font-weight: bold;
+    }
+
+    .tags {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    nav a[href="index.html#contact"] {
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="brand"><a href="index.html">Mohamed <span class="highlight">Doumbouya</span></a></div>
+    <nav>
+      <a href="about.html">À propos</a>
+      <a href="projects.html" class="active">Projets</a>
+      <a href="blog.html">Blog</a>
+      <a href="cv.html">CV</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="projects-container">
+    <h1>Mes projets personnels</h1>
+
+    <div class="project-card">
+      <h2>SimuEDP</h2>
+      <p>Simulation numérique d'équations aux dérivées partielles (EDP) avec méthodes de différences finies et éléments finis.</p>
+      <p class="tags">Python, NumPy, Matplotlib</p>
+      <a href="https://github.com/monprofil/SimuEDP" target="_blank">Voir sur GitHub →</a>
+    </div>
+
+    <div class="project-card">
+      <h2>OptimHPC</h2>
+      <p>Optimisation d'algorithmes parallèles sur architecture multi-GPU pour applications industrielles.</p>
+      <p class="tags">C++, CUDA, HPC</p>
+      <a href="https://github.com/monprofil/OptimHPC" target="_blank">Voir sur GitHub →</a>
+    </div>
+
+    <div class="project-card">
+      <h2>BlogMath</h2>
+      <p>Un générateur de blog scientifique statique écrit en Python, pour partager réflexions et contenus mathématiques.</p>
+      <p class="tags">Python, Markdown, Jinja2</p>
+      <a href="https://github.com/monprofil/BlogMath" target="_blank">Voir sur GitHub →</a>
+    </div>
+
+    <!-- Tu peux ajouter ici d'autres projets -->
+
+  </main>
+
+</body>
+</html>
 
