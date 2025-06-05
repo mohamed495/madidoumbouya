@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog – Mohamed Doumbouya</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .blog-container {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .post-card {
+      background: #fdfdfd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      padding: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .post-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .post-card h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .post-card .date {
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 0.8rem;
+    }
+
+    .post-card p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .post-card a {
+      display: inline-block;
+      margin-top: 1rem;
+      color: #0077cc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .post-card a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="brand">
+      <a href="index.html">Mohamed <span class="highlight">Doumbouya</span></a>
+    </div>
+    <nav>
+      <a href="about.html">À propos</a>
+      <a href="cv.html">CV</a>
+      <a href="projects.html">Projets</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 style="text-align: center; margin: 2rem 0;">Blog personnel</h1>
+
+    <section class="blog-container">
+
+      <div class="post-card">
+        <h2>Penser avec les maths</h2>
+        <div class="date">Publié le 6 juin 2025</div>
+        <p>Un regard personnel sur la manière dont les mathématiques façonnent notre façon de penser, d’abstraire, et même de ressentir le monde.</p>
+        <a href="#">Lire la suite →</a>
+      </div>
+
+      <div class="post-card">
+        <h2>L’Afrique et l’autonomie technologique</h2>
+        <div class="date">Publié le 21 mai 2025</div>
+        <p>Pourquoi maîtriser la technologie (HPC, IA, etc.) est un enjeu stratégique pour le continent africain. Réflexion critique et perspective personnelle.</p>
+        <a href="#">Lire la suite →</a>
+      </div>
+
+      <!-- Ajoute d'autres posts ici -->
+    </section>
+  </main>
+
+</body>
+</html>
