@@ -338,3 +338,13 @@ footer {
 .image-source a:hover {
   color: #0077cc;
 }
+
+.image-item img {
+  width: 100%;
+  height: 180px;               /* Hauteur fixe stricte */
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+  background-color: #f0f0f0;   /* pour combler si vide */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
