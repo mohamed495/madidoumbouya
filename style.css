@@ -312,3 +312,29 @@ footer {
   font-weight: normal;
   color: #666;
 }
+
+
+.image-item img {
+  width: 100%;
+  height: 200px;            /* taille fixe et uniforme */
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.image-source {
+  display: block;
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 0.4rem;
+}
+
+.image-source a {
+  color: #888;
+  text-decoration: underline;
+}
+
+.image-source a:hover {
+  color: #0077cc;
+}
