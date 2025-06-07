@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog – Mohamed Doumbouya</title>
   <style>
-    /* Reset de base */
     * {
       margin: 0;
       padding: 0;
@@ -13,14 +12,13 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       line-height: 1.6;
       color: #333;
       background: #f8fafc;
       padding-top: 80px;
     }
 
-    /* Navbar */
     .navbar {
       position: fixed;
       top: 0;
@@ -30,7 +28,6 @@
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-      transition: all 0.3s ease;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -49,7 +46,6 @@
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
     }
 
     .location {
@@ -60,7 +56,6 @@
     .navbar nav {
       display: flex;
       gap: 2rem;
-      transition: all 0.3s ease;
     }
 
     .navbar nav a {
@@ -87,475 +82,261 @@
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
 
-    /* Menu mobile */
-    .mobile-menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: #333;
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 10px;
-    }
-
-    /* Container principal */
     .blog-container {
-      max-width: 1400px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 40px 20px 60px;
+      padding: 40px 20px;
     }
 
-    /* Header du blog */
     .blog-header {
       text-align: center;
       margin-bottom: 60px;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 0.8s ease forwards;
     }
 
     .blog-header h1 {
-      font-size: 3.5rem;
+      font-size: 3rem;
       font-weight: 800;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
       margin-bottom: 20px;
-      letter-spacing: -0.02em;
     }
 
     .blog-header p {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       color: #64748b;
-      max-width: 700px;
+      max-width: 600px;
       margin: 0 auto;
-      font-weight: 400;
     }
 
-    /* Filtres */
-    .blog-filters {
+    /* Contrôles de filtrage */
+    .filter-controls {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      border: 1px solid #e2e8f0;
+    }
+
+    .filter-row {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
       gap: 20px;
-      margin-bottom: 60px;
       flex-wrap: wrap;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.8s ease 0.2s forwards;
+    }
+
+    .category-filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     .filter-btn {
-      background: white;
+      background: #f1f5f9;
       border: 2px solid #e2e8f0;
       color: #64748b;
-      padding: 14px 28px;
-      border-radius: 30px;
+      padding: 8px 16px;
+      border-radius: 20px;
       cursor: pointer;
       font-weight: 600;
-      transition: all 0.3s ease;
-      font-size: 1rem;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+      transition: all 0.2s ease;
+      font-size: 0.9rem;
     }
 
     .filter-btn:hover {
       border-color: #667eea;
       color: #667eea;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
     }
 
     .filter-btn.active {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      border-color: transparent;
+      background: #667eea;
+      border-color: #667eea;
       color: white;
-      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-      transform: translateY(-3px);
     }
 
-    /* Grid des articles */
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-      gap: 40px;
-      margin-bottom: 80px;
-    }
-
-    .blog-column {
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 0.8s ease forwards;
-    }
-
-    .blog-column:nth-child(1) { animation-delay: 0.3s; }
-    .blog-column:nth-child(2) { animation-delay: 0.4s; }
-    .blog-column:nth-child(3) { animation-delay: 0.5s; }
-
-    /* En-tête de colonne */
-    .column-header {
+    .quick-toggles {
       display: flex;
-      align-items: center;
       gap: 15px;
-      margin-bottom: 35px;
-      padding: 20px;
+      align-items: center;
+    }
+
+    .toggle-btn {
+      background: none;
+      border: 1px solid #e2e8f0;
+      color: #64748b;
+      padding: 6px 12px;
+      border-radius: 15px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
+    }
+
+    .toggle-btn.active {
+      background: #10b981;
+      border-color: #10b981;
+      color: white;
+    }
+
+    .stats {
+      color: #64748b;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* Articles */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 25px;
+    }
+
+    .article-card {
       background: white;
-      border-radius: 20px;
+      border-radius: 15px;
+      padding: 25px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
       border: 1px solid #e2e8f0;
-    }
-
-    .column-header h2 {
-      font-size: 2rem;
-      color: #1e293b;
-      margin: 0;
-      font-weight: 700;
-    }
-
-    .column-icon {
-      font-size: 2rem;
-      padding: 12px;
-      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-      border-radius: 15px;
-      border: 2px solid rgba(102, 126, 234, 0.2);
-    }
-
-    /* Cartes d'articles */
-    .post-card {
-      background: white;
-      border-radius: 20px;
-      padding: 30px;
-      margin-bottom: 25px;
-      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
-      border: 1px solid #e2e8f0;
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .post-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .post-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 50px rgba(102, 126, 234, 0.15);
-      border-color: rgba(102, 126, 234, 0.3);
-    }
-
-    .post-card:hover::before {
+      transition: all 0.3s ease;
       opacity: 1;
+      transform: scale(1);
     }
 
-    .post-meta {
+    .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 40px rgba(102, 126, 234, 0.15);
+    }
+
+    .article-card.hidden {
+      opacity: 0;
+      transform: scale(0.95);
+      pointer-events: none;
+      position: absolute;
+      visibility: hidden;
+    }
+
+    .article-meta {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-
-    .post-meta time {
-      color: #64748b;
-      font-size: 0.95rem;
-      font-weight: 600;
-      padding: 6px 12px;
-      background: #f1f5f9;
-      border-radius: 15px;
-    }
-
-    .coming-badge {
-      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-      color: white;
-      padding: 6px 14px;
-      border-radius: 15px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .new-badge {
-      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-      color: white;
-      padding: 6px 14px;
-      border-radius: 15px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .post-card h3 {
-      font-size: 1.4rem;
-      color: #1e293b;
       margin-bottom: 15px;
+    }
+
+    .category-tag {
+      padding: 4px 10px;
+      border-radius: 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .category-science {
+      background: #dbeafe;
+      color: #1d4ed8;
+    }
+
+    .category-culture {
+      background: #f3e8ff;
+      color: #7c3aed;
+    }
+
+    .category-divers {
+      background: #fef3c7;
+      color: #d97706;
+    }
+
+    .article-status {
+      font-size: 0.8rem;
+      padding: 3px 8px;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    .status-published {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .status-coming {
+      background: #fed7aa;
+      color: #c2410c;
+    }
+
+    .article-card h3 {
+      font-size: 1.3rem;
+      color: #1e293b;
+      margin-bottom: 12px;
       line-height: 1.3;
       font-weight: 700;
     }
 
-    .post-card p {
+    .article-card p {
       color: #64748b;
-      line-height: 1.7;
-      margin-bottom: 20px;
-      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .article-date {
+      color: #94a3b8;
+      font-size: 0.85rem;
+      font-weight: 500;
     }
 
     .read-more {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
       color: #667eea;
       text-decoration: none;
-      font-weight: 700;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      padding: 8px 0;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
     }
 
     .read-more:hover {
       color: #764ba2;
-      transform: translateX(5px);
     }
 
-    .coming-soon {
-      opacity: 0.8;
-      border: 2px dashed #f59e0b;
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.02) 0%, rgba(217, 119, 6, 0.02) 100%);
-    }
-
-    .coming-soon:hover {
-      transform: translateY(-4px);
-      border-color: #d97706;
-      opacity: 1;
-    }
-
-    .coming-soon::before {
-      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-    }
-
-    /* Newsletter */
-    .newsletter-section {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      border-radius: 25px;
-      padding: 50px;
+    .no-results {
       text-align: center;
-      color: white;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 0.8s ease 0.6s forwards;
-      box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+      padding: 60px 20px;
+      color: #64748b;
     }
 
-    .newsletter-section h3 {
-      font-size: 2rem;
-      margin-bottom: 15px;
-      font-weight: 700;
+    .no-results h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
     }
 
-    .newsletter-section p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-      opacity: 0.9;
-    }
-
-    .newsletter-form {
-      display: flex;
-      gap: 20px;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    .newsletter-form input {
-      flex: 1;
-      padding: 16px 24px;
-      border: none;
-      border-radius: 30px;
-      font-size: 1.1rem;
-      background: rgba(255, 255, 255, 0.95);
-      color: #333;
-      outline: none;
-    }
-
-    .newsletter-form input::placeholder {
-      color: #94a3b8;
-    }
-
-    .newsletter-form button {
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      color: white;
-      padding: 16px 32px;
-      border-radius: 30px;
-      cursor: pointer;
-      font-weight: 700;
-      transition: all 0.3s ease;
-      white-space: nowrap;
-      font-size: 1.1rem;
-    }
-
-    .newsletter-form button:hover {
-      background: rgba(255, 255, 255, 0.3);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .hidden {
+      display: none !important;
     }
 
     /* Responsive */
     @media (max-width: 768px) {
-      .mobile-menu-toggle {
-        display: block;
-      }
-
-      .navbar nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        padding: 20px;
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        border-top: 1px solid rgba(226, 232, 240, 0.8);
-      }
-
-      .navbar nav.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-      }
-
-      .navbar nav a {
-        padding: 15px 0;
-        border-bottom: 1px solid rgba(226, 232, 240, 0.5);
-        text-align: center;
-        color: #333;
-      }
-
-      .navbar nav a:last-child {
-        border-bottom: none;
-      }
-
-      body {
-        padding-top: 70px;
-      }
-
-      .blog-container {
-        padding: 20px 15px 40px;
-      }
-
       .blog-header h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
       }
 
-      .blog-header p {
-        font-size: 1.1rem;
-      }
-
-      .blog-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-      }
-
-      .blog-filters {
-        gap: 12px;
-        padding: 0 10px;
-      }
-
-      .filter-btn {
-        padding: 12px 20px;
-        font-size: 0.9rem;
-      }
-
-      .column-header {
-        padding: 15px;
-        margin-bottom: 25px;
-      }
-
-      .column-header h2 {
-        font-size: 1.6rem;
-      }
-
-      .post-card {
-        padding: 25px;
-        margin-bottom: 20px;
-      }
-
-      .post-card h3 {
-        font-size: 1.2rem;
-      }
-
-      .newsletter-form {
+      .filter-row {
         flex-direction: column;
+        align-items: stretch;
         gap: 15px;
       }
 
-      .newsletter-section {
-        padding: 35px 25px;
+      .category-filters {
+        justify-content: center;
       }
 
-      .newsletter-section h3 {
-        font-size: 1.6rem;
+      .quick-toggles {
+        justify-content: center;
       }
 
-      .newsletter-section p {
-        font-size: 1rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .blog-container {
-        padding: 15px 10px 30px;
-      }
-
-      .blog-header h1 {
-        font-size: 2rem;
-      }
-
-      .blog-filters {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .filter-btn {
-        width: 100%;
-        max-width: 280px;
-      }
-
-      .blog-grid {
+      .articles-grid {
         grid-template-columns: 1fr;
         gap: 20px;
       }
 
-      .post-card {
+      .article-card {
         padding: 20px;
-      }
-
-      .post-card h3 {
-        font-size: 1.1rem;
-      }
-
-      .post-card p {
-        font-size: 1rem;
       }
     }
   </style>
@@ -566,10 +347,7 @@
     <div class="brand">
       <a href="index.html">Mohamed <span class="highlight">Doumbouya</span> — <span class="location">Pau</span></a>
     </div>
-
-    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
-
-    <nav id="navMenu">
+    <nav>
       <a href="about.html">À propos</a>
       <a href="projects.html">Projets</a>
       <a href="blog.html" class="active">Blog</a>
@@ -580,246 +358,307 @@
 
   <main class="blog-container">
     
-    <!-- Header -->
     <section class="blog-header">
       <h1>Blog personnel</h1>
       <p>Mes réflexions entre mathématiques, technologie, philosophie et société</p>
     </section>
 
-    <!-- Filtres -->
-    <div class="blog-filters">
-      <button class="filter-btn active" data-category="all">
-        🌟 Tous les articles
-      </button>
-      <button class="filter-btn" data-category="science">
-        🔬 Sciences & Tech
-      </button>
-      <button class="filter-btn" data-category="culture">
-        📖 Culture & Idées
-      </button>
-      <button class="filter-btn" data-category="divers">
-        🎭 Divers & Passions
-      </button>
+    <!-- Contrôles de filtrage -->
+    <div class="filter-controls">
+      <div class="filter-row">
+        <div class="category-filters">
+          <button class="filter-btn active" data-filter="all">🌟 Tous</button>
+          <button class="filter-btn" data-filter="science">🔬 Sciences</button>
+          <button class="filter-btn" data-filter="culture">📖 Culture</button>
+          <button class="filter-btn" data-filter="divers">🎭 Divers</button>
+        </div>
+        
+        <div class="quick-toggles">
+          <button class="toggle-btn active" id="togglePublished">📝 Publiés</button>
+          <button class="toggle-btn active" id="toggleComing">⏳ À venir</button>
+          <button class="toggle-btn" id="toggleAll">👁️ Tout afficher</button>
+          <button class="toggle-btn" id="toggleHideAll">🙈 Tout masquer</button>
+        </div>
+        
+        <div class="stats">
+          <span id="statsDisplay">0 articles affichés</span>
+        </div>
+      </div>
     </div>
 
-    <!-- Contenu du blog -->
-    <div class="blog-grid">
+    <!-- Articles -->
+    <div class="articles-grid" id="articlesGrid">
       
-      <!-- Colonne Sciences & Tech -->
-      <section class="blog-column" data-category="science">
-        <div class="column-header">
-          <span class="column-icon">🔬</span>
-          <h2>Sciences & Tech</h2>
+      <!-- Article 1 -->
+      <article class="article-card" data-category="science" data-status="coming">
+        <div class="article-meta">
+          <span class="category-tag category-science">Sciences</span>
+          <span class="article-status status-coming">À venir</span>
         </div>
-        
-        <article class="post-card" data-category="science">
-          <div class="post-meta">
-            <time datetime="2025-06-06">6 juin 2025</time>
-          </div>
-          <h3>Penser avec les maths</h3>
-          <p>Comment les mathématiques influencent ma pensée, mes raisonnements et ma créativité au quotidien.</p>
-          <a href="articles/penser-avec-les-maths.html" class="read-more">
-            Lire l'article →
-          </a>
-        </article>
+        <h3>Penser avec les maths</h3>
+        <p>Comment les mathématiques influencent ma pensée, mes raisonnements et ma créativité au quotidien.</p>
+        <div class="article-date">Été 2025</div>
+      </article>
 
-        <article class="post-card" data-category="science">
-          <div class="post-meta">
-            <time datetime="2025-05-21">21 mai 2025</time>
-          </div>
-          <h3>L'Afrique et l'autonomie technologique</h3>
-          <p>Pourquoi l'indépendance technologique est essentielle pour l'avenir du continent africain.</p>
-          <a href="articles/afrique-technologie.html" class="read-more">
-            Lire l'article →
-          </a>
-        </article>
-
-        <article class="post-card coming-soon" data-category="science">
-          <div class="post-meta">
-            <time>Été 2025</time>
-            <span class="coming-badge">En préparation</span>
-          </div>
-          <h3>HPC et changement climatique</h3>
-          <p>Comment le calcul haute performance peut contribuer à la lutte contre le réchauffement climatique.</p>
-        </article>
-      </section>
-
-      <!-- Colonne Culture & Idées -->
-      <section class="blog-column" data-category="culture">
-        <div class="column-header">
-          <span class="column-icon">📖</span>
-          <h2>Culture & Idées</h2>
+      <!-- Article 2 -->
+      <article class="article-card" data-category="science" data-status="coming">
+        <div class="article-meta">
+          <span class="category-tag category-science">Sciences</span>
+          <span class="article-status status-coming">À venir</span>
         </div>
-        
-        <article class="post-card" data-category="culture">
-          <div class="post-meta">
-            <time datetime="2025-05-12">12 mai 2025</time>
-          </div>
-          <h3>"Peau noire, masques blancs" – Fanon</h3>
-          <p>Réflexions sur les effets psychologiques du colonialisme à travers l'œuvre fondatrice de Frantz Fanon.</p>
-          <a href="articles/fanon.html" class="read-more">
-            Lire le commentaire →
-          </a>
-        </article>
+        <h3>L'Afrique et l'autonomie technologique</h3>
+        <p>Pourquoi l'indépendance technologique est essentielle pour l'avenir du continent africain.</p>
+        <div class="article-date">Automne 2025</div>
+      </article>
 
-        <article class="post-card" data-category="culture">
-          <div class="post-meta">
-            <time datetime="2025-04-04">4 avril 2025</time>
-          </div>
-          <h3>"La condition noire" – A. Mbembe</h3>
-          <p>Analyse critique d'un essai majeur sur l'identité noire et les enjeux postcoloniaux contemporains.</p>
-          <a href="articles/mbembe.html" class="read-more">
-            Lire le commentaire →
-          </a>
-        </article>
-
-        <article class="post-card coming-soon" data-category="culture">
-          <div class="post-meta">
-            <time>Automne 2025</time>
-            <span class="coming-badge">En préparation</span>
-          </div>
-          <h3>"Gouverner par le chaos" – A. Mbembe</h3>
-          <p>Lecture critique du dernier essai d'Achille Mbembe sur les transformations du capitalisme contemporain.</p>
-        </article>
-      </section>
-
-      <!-- Colonne Divers & Passions -->
-      <section class="blog-column" data-category="divers">
-        <div class="column-header">
-          <span class="column-icon">🎭</span>
-          <h2>Divers & Passions</h2>
+      <!-- Article 3 -->
+      <article class="article-card" data-category="science" data-status="coming">
+        <div class="article-meta">
+          <span class="category-tag category-science">Sciences</span>
+          <span class="article-status status-coming">À venir</span>
         </div>
-        
-        <article class="post-card" data-category="divers">
-          <div class="post-meta">
-            <time datetime="2025-12-15">Décembre 2025</time>
-          </div>
-          <h3>Barça : L'art du jeu total</h3>
-          <p>Pourquoi le FC Barcelone incarne pour moi la beauté du football et l'intelligence collective.</p>
-        </article>
+        <h3>HPC et changement climatique</h3>
+        <p>Comment le calcul haute performance peut contribuer à la lutte contre le réchauffement climatique.</p>
+        <div class="article-date">Été 2025</div>
+      </article>
 
-        <article class="post-card" data-category="divers">
-          <div class="post-meta">
-            <time datetime="2026-01-20">Janvier 2026</time>
-          </div>
-          <h3>Séries qui marquent</h3>
-          <p>Comment certaines séries transforment notre vision du monde : de "The Wire" à "Dark".</p>
-        </article>
+      <!-- Article 4 -->
+      <article class="article-card" data-category="culture" data-status="published">
+        <div class="article-meta">
+          <span class="category-tag category-culture">Culture</span>
+          <span class="article-status status-published">Publié</span>
+        </div>
+        <h3>"Ecrire à l'ère de l'IA génératrice"</h3>
+        <p>Mes réflexions sur l'écriture à l'ère de l'intelligence artificielle génératrice.</p>
+        <div class="article-date">7 juin 2025</div>
+        <a href="articles/ecrire.html" class="read-more">Lire l'article →</a>
+      </article>
 
-        <article class="post-card coming-soon" data-category="divers">
-          <div class="post-meta">
-            <time>Hiver 2025</time>
-            <span class="coming-badge">En préparation</span>
-          </div>
-          <h3>Musique et maths</h3>
-          <p>Les liens fascinants entre harmonie musicale et structures mathématiques.</p>
-        </article>
-      </section>
+      <!-- Article 5 -->
+      <article class="article-card" data-category="culture" data-status="coming">
+        <div class="article-meta">
+          <span class="category-tag category-culture">Culture</span>
+          <span class="article-status status-coming">À venir</span>
+        </div>
+        <h3>"Peau noire, masques blancs" – Fanon</h3>
+        <p>Réflexions sur les effets psychologiques du colonialisme à travers l'œuvre fondatrice de Frantz Fanon.</p>
+        <div class="article-date">Automne 2025</div>
+      </article>
+
+      <!-- Article 6 -->
+      <article class="article-card" data-category="culture" data-status="coming">
+        <div class="article-meta">
+          <span class="category-tag category-culture">Culture</span>
+          <span class="article-status status-coming">À venir</span>
+        </div>
+        <h3>"La condition noire" – A. Mbembe</h3>
+        <p>Analyse critique d'un essai majeur sur l'identité noire et les enjeux postcoloniaux contemporains.</p>
+        <div class="article-date">Hiver 2025</div>
+      </article>
+
+      <!-- Article 7 -->
+      <article class="article-card" data-category="culture" data-status="coming">
+        <div class="article-meta">
+          <span class="category-tag category-culture">Culture</span>
+          <span class="article-status status-coming">À venir</span>
+        </div>
+        <h3>"Gouverner par le chaos" – A. Mbembe</h3>
+        <p>Lecture critique du dernier essai d'Achille Mbembe sur les transformations du capitalisme contemporain.</p>
+        <div class="article-date">Automne 2025</div>
+      </article>
+
+      <!-- Article 8 -->
+      <article class="article-card" data-category="divers" data-status="published">
+        <div class="article-meta">
+          <span class="category-tag category-divers">Divers</span>
+          <span class="article-status status-published">Publié</span>
+        </div>
+        <h3>Barça : L'art du jeu total</h3>
+        <p>Pourquoi le FC Barcelone incarne pour moi la beauté du football et l'intelligence collective.</p>
+        <div class="article-date">Décembre 2025</div>
+        <a href="#" class="read-more">Lire l'article →</a>
+      </article>
+
+      <!-- Article 9 -->
+      <article class="article-card" data-category="divers" data-status="published">
+        <div class="article-meta">
+          <span class="category-tag category-divers">Divers</span>
+          <span class="article-status status-published">Publié</span>
+        </div>
+        <h3>Séries qui marquent</h3>
+        <p>Comment certaines séries transforment notre vision du monde : de "The Wire" à "Dark".</p>
+        <div class="article-date">Janvier 2026</div>
+        <a href="#" class="read-more">Lire l'article →</a>
+      </article>
+
+      <!-- Article 10 -->
+      <article class="article-card" data-category="divers" data-status="coming">
+        <div class="article-meta">
+          <span class="category-tag category-divers">Divers</span>
+          <span class="article-status status-coming">À venir</span>
+        </div>
+        <h3>Musique et maths</h3>
+        <p>Les liens fascinants entre harmonie musicale et structures mathématiques.</p>
+        <div class="article-date">Hiver 2025</div>
+      </article>
 
     </div>
 
-    <!-- Newsletter -->
-    <div class="newsletter-section">
-      <h3>📬 Restez informé</h3>
-      <p>Recevez une notification à chaque nouvel article</p>
-      <form class="newsletter-form">
-        <input type="email" placeholder="Votre adresse email" required>
-        <button type="submit">S'abonner</button>
-      </form>
+    <!-- Message si aucun résultat -->
+    <div class="no-results hidden" id="noResults">
+      <h3>🔍 Aucun article trouvé</h3>
+      <p>Essayez de modifier vos filtres pour voir plus d'articles.</p>
     </div>
 
   </main>
 
   <script>
-    // Fonction pour le menu mobile
-    function toggleMobileMenu() {
-      const navMenu = document.getElementById('navMenu');
-      navMenu.classList.toggle('active');
-    }
-
-    // Fermer le menu mobile quand on clique sur un lien
-    document.querySelectorAll('.navbar nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('navMenu').classList.remove('active');
-      });
-    });
-
-    document.addEventListener('DOMContentLoaded', () => {
-      // Filtrage des articles
-      const filterBtns = document.querySelectorAll('.filter-btn');
-      const columns = document.querySelectorAll('.blog-column');
-
-      filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          // Mettre à jour les boutons actifs
-          filterBtns.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-
-          const category = btn.dataset.category;
-
-          if (category === 'all') {
-            // Afficher toutes les colonnes
-            columns.forEach((col, index) => {
-              col.style.display = 'block';
-              col.style.opacity = '0';
-              col.style.transform = 'translateY(20px)';
-              setTimeout(() => {
-                col.style.transition = 'all 0.6s ease';
-                col.style.opacity = '1';
-                col.style.transform = 'translateY(0)';
-              }, index * 100);
-            });
+    // 🎯 **SOLUTION JAVASCRIPT SIMPLE & IMMÉDIATE**
+    
+    class BlogFilter {
+      constructor() {
+        this.articles = document.querySelectorAll('.article-card');
+        this.filterBtns = document.querySelectorAll('.filter-btn');
+        this.togglePublished = document.getElementById('togglePublished');
+        this.toggleComing = document.getElementById('toggleComing');
+        this.toggleAll = document.getElementById('toggleAll');
+        this.toggleHideAll = document.getElementById('toggleHideAll');
+        this.statsDisplay = document.getElementById('statsDisplay');
+        this.noResults = document.getElementById('noResults');
+        
+        this.currentCategory = 'all';
+        this.showPublished = true;
+        this.showComing = true;
+        
+        this.init();
+      }
+      
+      init() {
+        // Événements pour les filtres de catégorie
+        this.filterBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            this.setActiveFilter(btn);
+            this.currentCategory = btn.dataset.filter;
+            this.filterArticles();
+          });
+        });
+        
+        // Événements pour les toggles
+        this.togglePublished.addEventListener('click', () => {
+          this.showPublished = !this.showPublished;
+          this.togglePublished.classList.toggle('active');
+          this.filterArticles();
+        });
+        
+        this.toggleComing.addEventListener('click', () => {
+          this.showComing = !this.showComing;
+          this.toggleComing.classList.toggle('active');
+          this.filterArticles();
+        });
+        
+        this.toggleAll.addEventListener('click', () => {
+          this.showAll();
+        });
+        
+        this.toggleHideAll.addEventListener('click', () => {
+          this.hideAll();
+        });
+        
+        // Filtrage initial
+        this.filterArticles();
+      }
+      
+      setActiveFilter(activeBtn) {
+        this.filterBtns.forEach(btn => btn.classList.remove('active'));
+        activeBtn.classList.add('active');
+      }
+      
+      filterArticles() {
+        let visibleCount = 0;
+        
+        this.articles.forEach(article => {
+          const category = article.dataset.category;
+          const status = article.dataset.status;
+          
+          let shouldShow = true;
+          
+          // Filtrage par catégorie
+          if (this.currentCategory !== 'all' && category !== this.currentCategory) {
+            shouldShow = false;
+          }
+          
+          // Filtrage par statut
+          if (status === 'published' && !this.showPublished) {
+            shouldShow = false;
+          }
+          if (status === 'coming' && !this.showComing) {
+            shouldShow = false;
+          }
+          
+          // Appliquer la visibilité
+          if (shouldShow) {
+            article.classList.remove('hidden');
+            visibleCount++;
           } else {
-            // Masquer toutes les colonnes d'abord
-            columns.forEach(col => col.style.display = 'none');
-            // Afficher seulement la colonne correspondante
-            const targetColumn = document.querySelector(`.blog-column[data-category="${category}"]`);
-            if (targetColumn) {
-              targetColumn.style.display = 'block';
-              targetColumn.style.opacity = '0';
-              targetColumn.style.transform = 'translateY(20px)';
-              setTimeout(() => {
-                targetColumn.style.transition = 'all 0.6s ease';
-                targetColumn.style.opacity = '1';
-                targetColumn.style.transform = 'translateY(0)';
-              }, 100);
-            }
+            article.classList.add('hidden');
           }
         });
-      });
-
-      // Newsletter form
-      const newsletterForm = document.querySelector('.newsletter-form');
-      newsletterForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const email = e.target.querySelector('input[type="email"]').value;
         
-        // Animation de succès
-        const button = e.target.querySelector('button');
-        const originalText = button.textContent;
-        button.textContent = '✓ Inscrit !';
-        button.style.background = 'rgba(39, 174, 96, 0.8)';
-        
-        setTimeout(() => {
-          button.textContent = originalText;
-          button.style.background = '';
-          e.target.reset();
-        }, 2000);
-      });
-
-      // Smooth scroll
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            target.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
+        this.updateStats(visibleCount);
+        this.toggleNoResults(visibleCount === 0);
+      }
+      
+      showAll() {
+        this.articles.forEach(article => {
+          article.classList.remove('hidden');
         });
-      });
+        this.updateStats(this.articles.length);
+        this.toggleNoResults(false);
+        
+        // Réinitialiser les états
+        this.showPublished = true;
+        this.showComing = true;
+        this.togglePublished.classList.add('active');
+        this.toggleComing.classList.add('active');
+      }
+      
+      hideAll() {
+        this.articles.forEach(article => {
+          article.classList.add('hidden');
+        });
+        this.updateStats(0);
+        this.toggleNoResults(true);
+        
+        // Réinitialiser les états
+        this.showPublished = false;
+        this.showComing = false;
+        this.togglePublished.classList.remove('active');
+        this.toggleComing.classList.remove('active');
+      }
+      
+      updateStats(count) {
+        this.statsDisplay.textContent = `${count} article${count !== 1 ? 's' : ''} affiché${count !== 1 ? 's' : ''}`;
+      }
+      
+      toggleNoResults(show) {
+        if (show) {
+          this.noResults.classList.remove('hidden');
+        } else {
+          this.noResults.classList.add('hidden');
+        }
+      }
+    }
+    
+    // 🚀 Initialisation au chargement de la page
+    document.addEventListener('DOMContentLoaded', () => {
+      new BlogFilter();
+      
+      console.log('✅ Blog filtré initialisé !');
+      console.log('🎯 Fonctionnalités disponibles :');
+      console.log('   • Filtrage par catégorie');
+      console.log('   • Toggle articles publiés/à venir');
+      console.log('   • Boutons Tout afficher/Tout masquer');
+      console.log('   • Statistiques en temps réel');
     });
   </script>
 

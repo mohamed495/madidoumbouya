@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Écrire à l'ère de l'IA générative – Mohamed Doumbouya</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../modern-style.css" />
+  <style>
+    /* Navbar fixe */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+      transition: all 0.3s ease;
+    }
+
+    body {
+      padding-top: 80px;
+      background: #f8fafc;
+      line-height: 1.7;
+    }
+
+    .article-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+    
+    .article-header {
+      text-align: center;
+      margin-bottom: 50px;
+      padding-bottom: 30px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    
+    .article-header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    
+    .article-meta {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      color: #64748b;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+    
+    .category {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .reading-time {
+      color: #94a3b8;
+      font-style: italic;
+    }
+    
+    .article-content {
+      font-size: 1.1rem;
+      color: #374151;
+    }
+    
+    .article-content h2 {
+      color: #667eea;
+      font-size: 1.8rem;
+      margin-top: 50px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .article-content h3 {
+      color: #1e293b;
+      font-size: 1.4rem;
+      margin-top: 40px;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    
+    .article-content p {
+      margin-bottom: 24px;
+      text-align: justify;
+    }
+
+    .article-content blockquote {
+      border-left: 4px solid #667eea;
+      background: rgba(102, 126, 234, 0.05);
+      padding: 20px 30px;
+      margin: 30px 0;
+      font-style: italic;
+      border-radius: 0 10px 10px 0;
+    }
+
+    .article-content ul, .article-content ol {
+      margin-bottom: 24px;
+      padding-left: 30px;
+    }
+
+    .article-content li {
+      margin-bottom: 8px;
+    }
+
+    .article-content strong {
+      color: #667eea;
+      font-weight: 600;
+    }
+    
+    .article-footer {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 2px solid #e2e8f0;
+      text-align: center;
+    }
+    
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 12px 24px;
+      border: 2px solid #667eea;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+    
+    .back-link:hover {
+      background: #667eea;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .article-container {
+        padding: 20px 15px 40px;
+      }
+
+      .article-header h1 {
+        font-size: 2.2rem;
+      }
+
+      .article-meta {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .article-content {
+        font-size: 1rem;
+      }
+
+      .article-content h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="brand">
+      <a href="../index.html">Mohamed <span class="highlight">Doumbouya</span> — <span class="location">Pau</span></a>
+    </div>
+    <nav>
+      <a href="../about.html">À propos</a>
+      <a href="../projects.html">Projets</a>
+      <a href="../blog.html" class="active">Blog</a>
+      <a href="../cv.html">CV</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="article-container">
+    <article>
+      <header class="article-header">
+        <h1>Écrire à l'ère de l'IA générative</h1>
+        <div class="article-meta">
+          <time datetime="2025-06-07">7 juin 2025</time>
+          <span class="category">Réflexions</span>
+          <span class="reading-time">8 min de lecture</span>
+        </div>
+      </header>
+      
+      <div class="article-content">
+        <p>Depuis toujours, l'écriture me fascine. Je n'ai jamais vraiment su ce que je voulais écrire, ni quand, ni même comment. Mais une chose était sûre : je voulais écrire. L'envie était là, comme une petite lumière discrète, persistante.</p>
+
+        <p>Lire, en revanche, m'a toujours semblé plus simple. La lecture m'a nourri, m'a ouvert l'esprit, m'a appris à regarder le monde autrement. Elle m'a donné le goût de la réflexion, de la nuance, du doute. Voyager à travers les mots, traverser une époque, découvrir la pensée de grands penseurs — anciens ou contemporains —, lire des phrases qui te bousculent, qui te poussent à questionner des évidences que tu ne voyais même pas… c'est cela, pour moi, la magie des livres.</p>
+
+        <p>Je me souviens, adolescent, de ces cahiers où je griffonnais des débuts de romans, des bribes de poèmes, des pensées éparses. Rien n'allait vraiment au bout, mais tout m'importait. Écrire, c'était tenter, oser, même maladroitement. C'était donner une forme, fût-elle imparfaite, à une idée ou une émotion qui me traversait.</p>
+
+        <p>Je tenais même un cahier où j'écrivais absolument tout : mon quotidien, mes voyages, des observations attrapées au vol… sans vraiment créer de liens entre elles, mais juste des bouts, par-ci, par-là, à fusion. Ce n'était pas structuré, ce n'était pas de la littérature, mais c'était vital, comme une façon de garder une trace, d'apprivoiser le temps.</p>
+
+        <p>Puis, entre mes 18 et 26 ans, j'ai perdu ce fil. J'ai mis de côté la lecture. Elle ne me manquait même pas — du moins, c'est ce que je croyais. Jusqu'au jour où, assis dans ma chambre, j'ai voulu écrire une dissertation, juste pour voir si j'en étais encore capable. Et là, rien. Le néant. Les mots refusaient de venir. Les idées, quand il y en avait, étaient maigres, décousues, mal structurées. Comment était-ce possible ? Au lycée, cela me semblait si naturel… Ce vide, ce blocage, a été un petit choc. Mais finalement, c'était le coup de pouce du destin dont j'avais besoin : ce manque m'a poussé à rouvrir un livre, puis un autre. À me réconcilier avec la lecture, et peut-être, à retrouver le chemin de l'écriture.</p>
+
+        <h2>La tentation de la facilité</h2>
+        
+        <p>Aujourd'hui, écrire n'a jamais été aussi simple — du moins en apparence. Il suffit de quelques mots-clés, d'un prompt bien pensé, et l'intelligence artificielle fait le reste : elle compose, structure, reformule, peaufine, jusqu'à livrer un texte parfois troublant de justesse. J'avoue, parfois, j'ai été tenté. Comment ne pas l'être ? Après tout, qui n'a jamais rêvé d'un génie invisible prêt à transformer nos idées brouillonnes en phrases ciselées ?</p>
+
+        <p>Alors qu'il y a encore peu de temps, j'étais capable d'écrire des rapports, des lettres de motivation, des mails personnels. C'était lent, parfois fastidieux, mais toujours enrichissant : chaque mot trouvé, chaque phrase tournée me donnait l'impression d'avancer, de progresser. Aujourd'hui, il m'arrive très souvent de déléguer à l'IA : je tape un prompt, "répondre à ce mail", et en quelques secondes, la réponse apparaît. Franchement, c'est pratique. Mais c'est aussi un peu effrayant : parfois, je me demande comment je faisais avant. Ça me semble presque impossible, aujourd'hui, de ne pas y avoir recours.</p>
+
+        <blockquote>
+          Je dois bien l'avouer, il y a une forme de soulagement à s'en remettre à la machine : on gagne du temps, on évite la fatigue mentale, on s'épargne les longues heures à douter, à relire, à réécrire. Mais parfois aussi, j'ai le sentiment de "tricher", de court-circuiter ce travail personnel, ce processus lent et parfois laborieux qui, finalement, faisait partie intégrante du plaisir d'écrire.
+        </blockquote>
+
+        <h3>Le dilemme de l'authenticité</h3>
+
+        <p>Est-ce vraiment moi qui réponds à ce mail, ou bien ai-je laissé une part de mon authenticité à la porte ? Jusqu'où puis-je déléguer sans finir par disparaître moi-même derrière la facilité ?</p>
+
+        <p>C'est grisant, c'est confortable, mais c'est aussi vertigineux. Difficile, parfois, de résister à l'envie de confier tout le travail à la machine, surtout quand on doute de soi, quand le mot juste refuse d'apparaître. L'IA, elle, ne fatigue jamais. Elle ne connaît ni la page blanche ni la lassitude.</p>
+
+        <p>Mais justement, c'est là que le malaise commence. À force de facilité, est-ce que je ne risque pas de perdre ce qui faisait le sel de l'écriture ? La lenteur, les tâtonnements, les reprises… Toute cette alchimie fragile où, parfois, une idée surgit parce qu'on a peiné à la trouver, à l'affiner. Et puis, quelle part de moi subsiste dans un texte généré par une machine ? Suis-je encore l'auteur ou simplement le spectateur d'un spectacle dont j'ai à peine soufflé le thème ?</p>
+
+        <p>C'est une vraie question, presque un dilemme intime. Je comprends l'attrait de l'outil, mais j'ai peur de me perdre dans cette facilité, d'y laisser, peu à peu, ce qui fait ma voix, mon rythme, mes hésitations et mes trouvailles.</p>
+
+        <h2>Lecture, maturation et l'ombre du soupçon</h2>
+
+        <p>Si l'IA peut écrire à ma place, elle ne peut pas lire à ma place. Elle ne peut pas non plus vivre ce que je ressens en lisant, ni transformer une phrase en souvenir, une idée en conviction.</p>
+
+        <p>Lire, pour moi, ce n'est pas seulement accumuler des informations, c'est plonger dans l'univers de quelqu'un d'autre, marcher un instant dans ses pensées, dans sa langue, dans sa vision du monde.</p>
+
+        <p>Certains livres m'ont marqué durablement, non pas seulement par leur histoire, mais par leur façon de dire les choses, par une tournure, une sensibilité, une émotion qui ne s'explique pas. J'ai appris à penser en lisant, à douter aussi, à ne pas croire sur parole.</p>
+
+        <p>La lecture m'a aussi appris la lenteur : le fait qu'il faut du temps pour comprendre, pour assimiler, pour changer d'avis. Elle m'a montré que la richesse de l'esprit ne vient pas de la rapidité, mais de la profondeur.</p>
+
+        <p>L'IA, elle, peut tout produire très vite, mais elle ne sait pas grandir, ni rêver, ni changer d'avis. Elle ne connaît pas la saveur d'un livre relu dix fois, ni la gêne de n'avoir pas tout compris.</p>
+
+        <p>Ce que je suis, ce que j'écris, doit beaucoup plus à tous ces livres qu'à n'importe quelle technologie.</p>
+
+        <p>Et je me dis que, tant que la lecture restera ce dialogue secret entre moi et l'auteur, il me restera toujours une part d'authenticité, quelque chose qu'aucune machine ne pourra vraiment me voler.</p>
+
+        <ul>
+          <li>L'IA accélère, mais ne mûrit pas nos idées à notre place.</li>
+          <li>Elle offre la facilité, mais pas l'expérience du doute et du tâtonnement.</li>
+          <li>Le soupçon plane désormais sur chaque texte : a-t-il été généré ou vécu ?</li>
+        </ul>
+
+        <h3>L'ombre du soupçon</h3>
+
+        <p>Il y a quelque chose d'étrange à écrire aujourd'hui : le doute plane. On ne sait plus très bien qui écrit, qui pense, qui signe vraiment.</p>
+
+        <p>Chaque texte lu sur internet ou même dans un livre peut désormais être soupçonné d'avoir été généré par une intelligence artificielle.</p>
+
+        <p>Le soupçon est partout, même sur les mots les plus sincères.</p>
+
+        <p>Cette méfiance change le regard que l'on porte sur l'écriture. Autrefois, un texte était d'abord la trace d'un auteur, le reflet d'une sensibilité, d'un parcours, de tout un vécu. Aujourd'hui, il faut parfois "prouver" que l'on a bien écrit soi-même, retrouver des traces, garder des brouillons, comme si l'authenticité était devenue suspecte, et la spontanéité presque un luxe.</p>
+
+        <p>Cela m'attriste parfois, mais cela me pousse aussi à vouloir écrire plus personnellement, à assumer mes doutes, mes maladresses, mes ruptures de ton. À glisser des traces de moi qu'aucune IA ne saurait imiter : un souvenir précis, une référence oubliée, un rythme particulier.</p>
+
+        <p>Peut-être qu'au fond, la vraie réponse à la facilité de l'IA, c'est d'oser écrire plus humain, plus singulier, même si c'est moins parfait.</p>
+
+        <p><strong>Conclusion</strong></p>
+
+        <p>Écrire à l'ère de l'IA, c'est naviguer entre la tentation du prêt-à-penser et la fidélité à sa propre voix. Je n'ai pas toutes les réponses, mais je crois que tant que je continuerai à douter, à lire, à me raconter sans tout déléguer, une part de moi subsistera toujours dans ce que j'écris.</p>
+      </div>
+      
+      <footer class="article-footer">
+        <a href="../blog.html" class="back-link">
+          ← Retour au blog
+        </a>
+      </footer>
+    </article>
+  </main>
+
+</body>
+</html>
