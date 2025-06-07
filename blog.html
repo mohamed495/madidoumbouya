@@ -4,21 +4,108 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog – Mohamed Doumbouya</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="modern-style.css" />
   <style>
-    /* Styles pour la page Blog */
+    /* Reset de base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
       background: #f8fafc;
-      min-height: 100vh;
+      padding-top: 80px;
     }
 
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+      height: 80px;
+    }
+
+    .brand a {
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .location {
+      color: #64748b;
+      font-weight: 400;
+    }
+
+    .navbar nav {
+      display: flex;
+      gap: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .navbar nav a {
+      text-decoration: none;
+      color: #64748b;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      padding: 10px 0;
+      position: relative;
+    }
+
+    .navbar nav a:hover,
+    .navbar nav a.active {
+      color: #667eea;
+    }
+
+    .navbar nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    /* Menu mobile */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #333;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    /* Container principal */
     .blog-container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 120px 20px 60px;
+      padding: 40px 20px 60px;
     }
 
+    /* Header du blog */
     .blog-header {
       text-align: center;
       margin-bottom: 60px;
@@ -28,27 +115,30 @@
     }
 
     .blog-header h1 {
-      font-size: 3rem;
-      font-weight: 700;
+      font-size: 3.5rem;
+      font-weight: 800;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       margin-bottom: 20px;
+      letter-spacing: -0.02em;
     }
 
     .blog-header p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: #64748b;
-      max-width: 600px;
+      max-width: 700px;
       margin: 0 auto;
+      font-weight: 400;
     }
 
+    /* Filtres */
     .blog-filters {
       display: flex;
       justify-content: center;
-      gap: 15px;
-      margin-bottom: 50px;
+      gap: 20px;
+      margin-bottom: 60px;
       flex-wrap: wrap;
       opacity: 0;
       transform: translateY(20px);
@@ -59,32 +149,36 @@
       background: white;
       border: 2px solid #e2e8f0;
       color: #64748b;
-      padding: 12px 24px;
-      border-radius: 25px;
+      padding: 14px 28px;
+      border-radius: 30px;
       cursor: pointer;
       font-weight: 600;
       transition: all 0.3s ease;
-      font-size: 0.95rem;
+      font-size: 1rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
     }
 
     .filter-btn:hover {
       border-color: #667eea;
       color: #667eea;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
     }
 
     .filter-btn.active {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       border-color: transparent;
       color: white;
-      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+      transform: translateY(-3px);
     }
 
+    /* Grid des articles */
     .blog-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 30px;
-      margin-bottom: 60px;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 40px;
+      margin-bottom: 80px;
     }
 
     .blog-column {
@@ -95,137 +189,198 @@
 
     .blog-column:nth-child(1) { animation-delay: 0.3s; }
     .blog-column:nth-child(2) { animation-delay: 0.4s; }
+    .blog-column:nth-child(3) { animation-delay: 0.5s; }
 
+    /* En-tête de colonne */
     .column-header {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 30px;
-      padding-bottom: 15px;
-      border-bottom: 3px solid #e2e8f0;
+      gap: 15px;
+      margin-bottom: 35px;
+      padding: 20px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      border: 1px solid #e2e8f0;
     }
 
     .column-header h2 {
-      font-size: 1.8rem;
+      font-size: 2rem;
       color: #1e293b;
       margin: 0;
+      font-weight: 700;
     }
 
     .column-icon {
-      font-size: 1.5rem;
+      font-size: 2rem;
+      padding: 12px;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+      border-radius: 15px;
+      border: 2px solid rgba(102, 126, 234, 0.2);
     }
 
+    /* Cartes d'articles */
     .post-card {
       background: white;
-      border-radius: 15px;
-      padding: 25px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 25px;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
       border: 1px solid #e2e8f0;
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .post-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
 
     .post-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-      border-color: #667eea;
+      transform: translateY(-8px);
+      box-shadow: 0 15px 50px rgba(102, 126, 234, 0.15);
+      border-color: rgba(102, 126, 234, 0.3);
+    }
+
+    .post-card:hover::before {
+      opacity: 1;
     }
 
     .post-meta {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 15px;
+      gap: 12px;
+      margin-bottom: 18px;
     }
 
     .post-meta time {
       color: #64748b;
-      font-size: 0.9rem;
-      font-weight: 500;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      background: #f1f5f9;
+      border-radius: 15px;
     }
 
     .coming-badge {
       background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
       color: white;
-      padding: 4px 10px;
-      border-radius: 12px;
-      font-size: 0.75rem;
-      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .new-badge {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .post-card h3 {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       color: #1e293b;
-      margin-bottom: 12px;
-      line-height: 1.4;
+      margin-bottom: 15px;
+      line-height: 1.3;
+      font-weight: 700;
     }
 
     .post-card p {
       color: #64748b;
-      line-height: 1.6;
-      margin-bottom: 15px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-size: 1.05rem;
     }
 
     .read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       color: #667eea;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
+      font-weight: 700;
+      font-size: 1rem;
       transition: all 0.3s ease;
+      padding: 8px 0;
     }
 
     .read-more:hover {
       color: #764ba2;
-      text-decoration: underline;
+      transform: translateX(5px);
     }
 
     .coming-soon {
-      opacity: 0.7;
-      border-style: dashed;
+      opacity: 0.8;
+      border: 2px dashed #f59e0b;
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.02) 0%, rgba(217, 119, 6, 0.02) 100%);
     }
 
     .coming-soon:hover {
-      transform: none;
-      border-color: #f59e0b;
+      transform: translateY(-4px);
+      border-color: #d97706;
+      opacity: 1;
     }
 
+    .coming-soon::before {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    }
+
+    /* Newsletter */
     .newsletter-section {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      border-radius: 20px;
-      padding: 40px;
+      border-radius: 25px;
+      padding: 50px;
       text-align: center;
       color: white;
       opacity: 0;
       transform: translateY(30px);
       animation: fadeInUp 0.8s ease 0.6s forwards;
+      box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
     }
 
     .newsletter-section h3 {
-      font-size: 1.6rem;
+      font-size: 2rem;
       margin-bottom: 15px;
+      font-weight: 700;
     }
 
     .newsletter-section p {
-      font-size: 1.1rem;
-      margin-bottom: 25px;
+      font-size: 1.2rem;
+      margin-bottom: 30px;
       opacity: 0.9;
     }
 
     .newsletter-form {
       display: flex;
-      gap: 15px;
-      max-width: 400px;
+      gap: 20px;
+      max-width: 500px;
       margin: 0 auto;
     }
 
     .newsletter-form input {
       flex: 1;
-      padding: 12px 20px;
+      padding: 16px 24px;
       border: none;
-      border-radius: 25px;
-      font-size: 1rem;
-      background: rgba(255, 255, 255, 0.9);
+      border-radius: 30px;
+      font-size: 1.1rem;
+      background: rgba(255, 255, 255, 0.95);
       color: #333;
+      outline: none;
     }
 
     .newsletter-form input::placeholder {
@@ -235,19 +390,21 @@
     .newsletter-form button {
       background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      border: 2px solid rgba(255, 255, 255, 0.3);
       color: white;
-      padding: 12px 25px;
-      border-radius: 25px;
+      padding: 16px 32px;
+      border-radius: 30px;
       cursor: pointer;
-      font-weight: 600;
+      font-weight: 700;
       transition: all 0.3s ease;
       white-space: nowrap;
+      font-size: 1.1rem;
     }
 
     .newsletter-form button:hover {
       background: rgba(255, 255, 255, 0.3);
       transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
 
     /* Animations */
@@ -260,12 +417,128 @@
 
     /* Responsive */
     @media (max-width: 768px) {
+      .mobile-menu-toggle {
+        display: block;
+      }
+
+      .navbar nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 20px;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        border-top: 1px solid rgba(226, 232, 240, 0.8);
+      }
+
+      .navbar nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .navbar nav a {
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+        text-align: center;
+        color: #333;
+      }
+
+      .navbar nav a:last-child {
+        border-bottom: none;
+      }
+
+      body {
+        padding-top: 70px;
+      }
+
       .blog-container {
-        padding: 100px 15px 40px;
+        padding: 20px 15px 40px;
       }
 
       .blog-header h1 {
         font-size: 2.5rem;
+      }
+
+      .blog-header p {
+        font-size: 1.1rem;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .blog-filters {
+        gap: 12px;
+        padding: 0 10px;
+      }
+
+      .filter-btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+      }
+
+      .column-header {
+        padding: 15px;
+        margin-bottom: 25px;
+      }
+
+      .column-header h2 {
+        font-size: 1.6rem;
+      }
+
+      .post-card {
+        padding: 25px;
+        margin-bottom: 20px;
+      }
+
+      .post-card h3 {
+        font-size: 1.2rem;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .newsletter-section {
+        padding: 35px 25px;
+      }
+
+      .newsletter-section h3 {
+        font-size: 1.6rem;
+      }
+
+      .newsletter-section p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .blog-container {
+        padding: 15px 10px 30px;
+      }
+
+      .blog-header h1 {
+        font-size: 2rem;
+      }
+
+      .blog-filters {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .filter-btn {
+        width: 100%;
+        max-width: 280px;
       }
 
       .blog-grid {
@@ -273,32 +546,16 @@
         gap: 20px;
       }
 
-      .newsletter-form {
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .newsletter-section {
-        padding: 30px 25px;
-      }
-
-      .blog-filters {
-        gap: 10px;
-      }
-
-      .filter-btn {
-        padding: 10px 18px;
-        font-size: 0.9rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .blog-header h1 {
-        font-size: 2rem;
-      }
-
       .post-card {
         padding: 20px;
+      }
+
+      .post-card h3 {
+        font-size: 1.1rem;
+      }
+
+      .post-card p {
+        font-size: 1rem;
       }
     }
   </style>
@@ -309,7 +566,10 @@
     <div class="brand">
       <a href="index.html">Mohamed <span class="highlight">Doumbouya</span> — <span class="location">Pau</span></a>
     </div>
-    <nav>
+
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+
+    <nav id="navMenu">
       <a href="about.html">À propos</a>
       <a href="projects.html">Projets</a>
       <a href="blog.html" class="active">Blog</a>
@@ -331,49 +591,91 @@
       <button class="filter-btn active" data-category="all">
         🌟 Tous les articles
       </button>
-      <button class="filter-btn" data-category="lectures">
-        📚 Lectures
+      <button class="filter-btn" data-category="science">
+        🔬 Sciences & Tech
       </button>
-      <button class="filter-btn" data-category="reflexions">
-        🧠 Réflexions
+      <button class="filter-btn" data-category="culture">
+        📖 Culture & Idées
+      </button>
+      <button class="filter-btn" data-category="divers">
+        🎭 Divers & Passions
       </button>
     </div>
 
     <!-- Contenu du blog -->
     <div class="blog-grid">
       
-      <!-- Colonne Lectures -->
-      <section class="blog-column" data-category="lectures">
+      <!-- Colonne Sciences & Tech -->
+      <section class="blog-column" data-category="science">
         <div class="column-header">
-          <span class="column-icon">📚</span>
-          <h2>Lectures</h2>
+          <span class="column-icon">🔬</span>
+          <h2>Sciences & Tech</h2>
         </div>
         
-        <article class="post-card" data-category="lectures">
+        <article class="post-card" data-category="science">
+          <div class="post-meta">
+            <time datetime="2025-06-06">6 juin 2025</time>
+          </div>
+          <h3>Penser avec les maths</h3>
+          <p>Comment les mathématiques influencent ma pensée, mes raisonnements et ma créativité au quotidien.</p>
+          <a href="articles/penser-avec-les-maths.html" class="read-more">
+            Lire l'article →
+          </a>
+        </article>
+
+        <article class="post-card" data-category="science">
+          <div class="post-meta">
+            <time datetime="2025-05-21">21 mai 2025</time>
+          </div>
+          <h3>L'Afrique et l'autonomie technologique</h3>
+          <p>Pourquoi l'indépendance technologique est essentielle pour l'avenir du continent africain.</p>
+          <a href="articles/afrique-technologie.html" class="read-more">
+            Lire l'article →
+          </a>
+        </article>
+
+        <article class="post-card coming-soon" data-category="science">
+          <div class="post-meta">
+            <time>Été 2025</time>
+            <span class="coming-badge">En préparation</span>
+          </div>
+          <h3>HPC et changement climatique</h3>
+          <p>Comment le calcul haute performance peut contribuer à la lutte contre le réchauffement climatique.</p>
+        </article>
+      </section>
+
+      <!-- Colonne Culture & Idées -->
+      <section class="blog-column" data-category="culture">
+        <div class="column-header">
+          <span class="column-icon">📖</span>
+          <h2>Culture & Idées</h2>
+        </div>
+        
+        <article class="post-card" data-category="culture">
           <div class="post-meta">
             <time datetime="2025-05-12">12 mai 2025</time>
           </div>
           <h3>"Peau noire, masques blancs" – Fanon</h3>
-          <p>Réflexions sur les effets psychologiques du colonialisme à travers Fanon.</p>
+          <p>Réflexions sur les effets psychologiques du colonialisme à travers l'œuvre fondatrice de Frantz Fanon.</p>
           <a href="articles/fanon.html" class="read-more">
             Lire le commentaire →
           </a>
         </article>
 
-        <article class="post-card" data-category="lectures">
+        <article class="post-card" data-category="culture">
           <div class="post-meta">
             <time datetime="2025-04-04">4 avril 2025</time>
           </div>
           <h3>"La condition noire" – A. Mbembe</h3>
-          <p>Analyse critique d'un essai majeur sur l'identité noire.</p>
+          <p>Analyse critique d'un essai majeur sur l'identité noire et les enjeux postcoloniaux contemporains.</p>
           <a href="articles/mbembe.html" class="read-more">
             Lire le commentaire →
           </a>
         </article>
 
-        <article class="post-card coming-soon" data-category="lectures">
+        <article class="post-card coming-soon" data-category="culture">
           <div class="post-meta">
-            <time>Bientôt</time>
+            <time>Automne 2025</time>
             <span class="coming-badge">En préparation</span>
           </div>
           <h3>"Gouverner par le chaos" – A. Mbembe</h3>
@@ -381,42 +683,36 @@
         </article>
       </section>
 
-      <!-- Colonne Réflexions -->
-      <section class="blog-column" data-category="reflexions">
+      <!-- Colonne Divers & Passions -->
+      <section class="blog-column" data-category="divers">
         <div class="column-header">
-          <span class="column-icon">🧠</span>
-          <h2>Réflexions</h2>
+          <span class="column-icon">🎭</span>
+          <h2>Divers & Passions</h2>
         </div>
         
-        <article class="post-card" data-category="reflexions">
+        <article class="post-card" data-category="divers">
           <div class="post-meta">
-            <time datetime="2025-06-06">6 juin 2025</time>
+            <time datetime="2025-12-15">Décembre 2025</time>
           </div>
-          <h3>Penser avec les maths</h3>
-          <p>Comment les maths influencent ma pensée, mes raisonnements et ma créativité.</p>
-          <a href="articles/penser-avec-les-maths.html" class="read-more">
-            Lire l'article →
-          </a>
+          <h3>Barça : L'art du jeu total</h3>
+          <p>Pourquoi le FC Barcelone incarne pour moi la beauté du football et l'intelligence collective.</p>
         </article>
 
-        <article class="post-card" data-category="reflexions">
+        <article class="post-card" data-category="divers">
           <div class="post-meta">
-            <time datetime="2025-05-21">21 mai 2025</time>
+            <time datetime="2026-01-20">Janvier 2026</time>
           </div>
-          <h3>L'Afrique et l'autonomie technologique</h3>
-          <p>Pourquoi l'indépendance technologique est essentielle pour l'Afrique.</p>
-          <a href="articles/afrique-technologie.html" class="read-more">
-            Lire l'article →
-          </a>
+          <h3>Séries qui marquent</h3>
+          <p>Comment certaines séries transforment notre vision du monde : de "The Wire" à "Dark".</p>
         </article>
 
-        <article class="post-card coming-soon" data-category="reflexions">
+        <article class="post-card coming-soon" data-category="divers">
           <div class="post-meta">
-            <time>Bientôt</time>
+            <time>Hiver 2025</time>
             <span class="coming-badge">En préparation</span>
           </div>
-          <h3>HPC et changement climatique</h3>
-          <p>Comment le calcul haute performance peut contribuer à la lutte contre le réchauffement climatique.</p>
+          <h3>Musique et maths</h3>
+          <p>Les liens fascinants entre harmonie musicale et structures mathématiques.</p>
         </article>
       </section>
 
@@ -435,10 +731,22 @@
   </main>
 
   <script>
+    // Fonction pour le menu mobile
+    function toggleMobileMenu() {
+      const navMenu = document.getElementById('navMenu');
+      navMenu.classList.toggle('active');
+    }
+
+    // Fermer le menu mobile quand on clique sur un lien
+    document.querySelectorAll('.navbar nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navMenu').classList.remove('active');
+      });
+    });
+
     document.addEventListener('DOMContentLoaded', () => {
       // Filtrage des articles
       const filterBtns = document.querySelectorAll('.filter-btn');
-      const articles = document.querySelectorAll('.post-card');
       const columns = document.querySelectorAll('.blog-column');
 
       filterBtns.forEach(btn => {
@@ -450,8 +758,8 @@
           const category = btn.dataset.category;
 
           if (category === 'all') {
-            // Afficher toutes les colonnes et tous les articles
-            columns.forEach(col => {
+            // Afficher toutes les colonnes
+            columns.forEach((col, index) => {
               col.style.display = 'block';
               col.style.opacity = '0';
               col.style.transform = 'translateY(20px)';
@@ -459,7 +767,7 @@
                 col.style.transition = 'all 0.6s ease';
                 col.style.opacity = '1';
                 col.style.transform = 'translateY(0)';
-              }, 100);
+              }, index * 100);
             });
           } else {
             // Masquer toutes les colonnes d'abord
@@ -499,7 +807,7 @@
         }, 2000);
       });
 
-      // Smooth scroll pour les liens
+      // Smooth scroll
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
           e.preventDefault();

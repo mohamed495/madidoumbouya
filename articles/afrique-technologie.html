@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Titre de l'article – Mohamed Doumbouya</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../modern-style.css" />
+  <style>
+    /* Navbar fixe */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+      transition: all 0.3s ease;
+    }
+
+    body {
+      padding-top: 80px;
+      background: #f8fafc;
+      line-height: 1.7;
+    }
+
+    .article-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+    
+    .article-header {
+      text-align: center;
+      margin-bottom: 50px;
+      padding-bottom: 30px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    
+    .article-header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    
+    .article-meta {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      color: #64748b;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+    
+    .category {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .reading-time {
+      color: #94a3b8;
+      font-style: italic;
+    }
+    
+    .article-content {
+      font-size: 1.1rem;
+      color: #374151;
+    }
+    
+    .article-content h2 {
+      color: #667eea;
+      font-size: 1.8rem;
+      margin-top: 50px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .article-content h3 {
+      color: #1e293b;
+      font-size: 1.4rem;
+      margin-top: 40px;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    
+    .article-content p {
+      margin-bottom: 24px;
+      text-align: justify;
+    }
+
+    .article-content blockquote {
+      border-left: 4px solid #667eea;
+      background: rgba(102, 126, 234, 0.05);
+      padding: 20px 30px;
+      margin: 30px 0;
+      font-style: italic;
+      border-radius: 0 10px 10px 0;
+    }
+
+    .article-content ul, .article-content ol {
+      margin-bottom: 24px;
+      padding-left: 30px;
+    }
+
+    .article-content li {
+      margin-bottom: 8px;
+    }
+
+    .article-content strong {
+      color: #667eea;
+      font-weight: 600;
+    }
+    
+    .article-footer {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 2px solid #e2e8f0;
+      text-align: center;
+    }
+    
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 12px 24px;
+      border: 2px solid #667eea;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+    
+    .back-link:hover {
+      background: #667eea;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .article-container {
+        padding: 20px 15px 40px;
+      }
+
+      .article-header h1 {
+        font-size: 2.2rem;
+      }
+
+      .article-meta {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .article-content {
+        font-size: 1rem;
+      }
+
+      .article-content h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="brand">
+      <a href="../index.html">Mohamed <span class="highlight">Doumbouya</span> — <span class="location">Pau</span></a>
+    </div>
+    <nav>
+      <a href="../about.html">À propos</a>
+      <a href="../projects.html">Projets</a>
+      <a href="../blog.html" class="active">Blog</a>
+      <a href="../cv.html">CV</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="article-container">
+    <article>
+      <header class="article-header">
+        <h1>Titre de votre article</h1>
+        <div class="article-meta">
+          <time datetime="2025-06-07">7 juin 2025</time>
+          <span class="category">Réflexions</span>
+          <span class="reading-time">5 min de lecture</span>
+        </div>
+      </header>
+      
+      <div class="article-content">
+        <p><strong>Introduction captivante</strong> de votre article qui donne envie de lire la suite...</p>
+        
+        <h2>Premier point important</h2>
+        <p>Développement de votre première idée avec des exemples concrets et des réflexions personnelles.</p>
+
+        <blockquote>
+          "Une citation inspirante ou un passage important à mettre en valeur."
+        </blockquote>
+
+        <h3>Sous-point détaillé</h3>
+        <p>Analyse plus fine avec des arguments étayés.</p>
+
+        <h2>Deuxième axe de réflexion</h2>
+        <p>Continuation de votre développement...</p>
+
+        <ul>
+          <li>Point clé numéro 1</li>
+          <li>Point clé numéro 2</li>
+          <li>Point clé numéro 3</li>
+        </ul>
+
+        <p><strong>Conclusion</strong> qui synthétise vos idées et ouvre sur de nouvelles perspectives.</p>
+      </div>
+      
+      <footer class="article-footer">
+        <a href="../blog.html" class="back-link">
+          ← Retour au blog
+        </a>
+      </footer>
+    </article>
+  </main>
+
+</body>
+</html>
