@@ -5,62 +5,306 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projets – Mohamed Doumbouya</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="modern-style.css" />
   <style>
-    .projects-container {
-      max-width: 1000px;
-      margin: 3rem auto;
-      padding: 0 1rem;
+    /* Styles pour la page Projets */
+    body {
+      background: #f8fafc;
+      min-height: 100vh;
     }
 
-    .projects-container h1 {
+    .projects-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 120px 20px 60px;
+    }
+
+    .projects-header {
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 60px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .projects-header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+    }
+
+    .projects-header p {
+      font-size: 1.2rem;
+      color: #64748b;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
     }
 
     .project-card {
-      background: #f9f9f9;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease;
+      background: white;
+      border-radius: 20px;
+      padding: 35px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      transition: all 0.4s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
 
     .project-card:hover {
-      transform: scale(1.01);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(102, 126, 234, 0.15);
+      border-color: rgba(102, 126, 234, 0.3);
     }
 
-    .project-card h2 {
-      margin-bottom: 0.5rem;
-      color: #0077cc;
+    .project-card:hover::before {
+      opacity: 1;
     }
 
-    .project-card p {
-      margin: 0.5rem 0;
-      color: #444;
+    .project-card:nth-child(1) { animation-delay: 0.2s; }
+    .project-card:nth-child(2) { animation-delay: 0.3s; }
+    .project-card:nth-child(3) { animation-delay: 0.4s; }
+    .project-card:nth-child(4) { animation-delay: 0.5s; }
+
+    .project-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
     }
 
-    .project-card a {
-      text-decoration: none;
-      color: #0077cc;
-      font-weight: bold;
+    .project-header h2 {
+      font-size: 1.5rem;
+      color: #1e293b;
+      margin: 0;
+      font-weight: 700;
     }
 
-    .tags {
-      margin-top: 0.5rem;
+    .project-icon {
+      font-size: 2rem;
+      padding: 12px;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+      border-radius: 15px;
+      border: 2px solid rgba(102, 126, 234, 0.2);
+    }
+
+    .project-description {
+      color: #64748b;
+      line-height: 1.7;
+      margin-bottom: 25px;
+      font-size: 1.05rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 25px;
+    }
+
+    .tag {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+      color: #667eea;
+      padding: 6px 14px;
+      border-radius: 20px;
       font-size: 0.85rem;
-      color: #666;
+      font-weight: 600;
+      border: 1px solid rgba(102, 126, 234, 0.2);
     }
 
-    nav a[href="index.html#contact"] {
-      white-space: nowrap;
+    .project-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+
+    .project-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    }
+
+    .project-link.secondary {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(102, 126, 234, 0.3);
+      color: #667eea;
+      box-shadow: none;
+    }
+
+    .project-link.secondary:hover {
+      background: rgba(102, 126, 234, 0.1);
+      border-color: #667eea;
+    }
+
+    .coming-soon {
+      opacity: 0.8;
+      border-style: dashed;
+      border-color: #f59e0b;
+    }
+
+    .coming-soon::before {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    }
+
+    .coming-soon .project-icon {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(217, 119, 6, 0.1) 100%);
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+
+    .coming-badge {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .contact-cta {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      color: white;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease 0.6s forwards;
+    }
+
+    .contact-cta h3 {
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+    }
+
+    .contact-cta p {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      opacity: 0.9;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      color: white;
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .cta-button:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .projects-container {
+        padding: 100px 15px 40px;
+      }
+
+      .projects-header h1 {
+        font-size: 2.5rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .project-card {
+        padding: 25px;
+      }
+
+      .project-links {
+        flex-direction: column;
+      }
+
+      .contact-cta {
+        padding: 30px 25px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .projects-header h1 {
+        font-size: 2rem;
+      }
+
+      .project-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .project-icon {
+        align-self: flex-end;
+      }
     }
   </style>
 </head>
 <body>
 
   <header class="navbar">
-    <div class="brand"><a href="index.html">Mohamed <span class="highlight">Doumbouya</span></a></div>
+    <div class="brand">
+      <a href="index.html">Mohamed <span class="highlight">Doumbouya</span> — <span class="location">Pau</span></a>
+    </div>
     <nav>
       <a href="about.html">À propos</a>
       <a href="projects.html" class="active">Projets</a>
@@ -71,33 +315,188 @@
   </header>
 
   <main class="projects-container">
-    <h1>Mes projets personnels</h1>
+    
+    <!-- Header -->
+    <section class="projects-header">
+      <h1>Mes projets personnels</h1>
+      <p>Découvrez mes réalisations en mathématiques appliquées et développement</p>
+    </section>
 
-    <div class="project-card">
-      <h2>SimuEDP</h2>
-      <p>Simulation numérique d'équations aux dérivées partielles (EDP) avec méthodes de différences finies et éléments finis.</p>
-      <p class="tags">Python, NumPy, Matplotlib</p>
-      <a href="https://github.com/monprofil/SimuEDP" target="_blank">Voir sur GitHub →</a>
+    <!-- Projets -->
+    <div class="projects-grid">
+      
+      <div class="project-card">
+        <div class="project-header">
+          <h2>SimuEDP</h2>
+          <div class="project-icon">🔬</div>
+        </div>
+        <p class="project-description">
+          Simulation numérique d'équations aux dérivées partielles (EDP) avec méthodes de différences finies et éléments finis. Outil développé pour résoudre des problèmes complexes de modélisation mathématique.
+        </p>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">Matplotlib</span>
+          <span class="tag">SciPy</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/monprofil/SimuEDP" target="_blank" class="project-link">
+            Voir sur GitHub
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15,3 21,3 21,9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h2>OptimHPC</h2>
+          <div class="project-icon">⚡</div>
+        </div>
+        <p class="project-description">
+          Bibliothèque d'optimisation pour calcul haute performance. Implémentation d'algorithmes parallèles pour des problèmes d'optimisation à grande échelle sur clusters de calcul.
+        </p>
+        <div class="project-tags">
+          <span class="tag">C++</span>
+          <span class="tag">MPI</span>
+          <span class="tag">OpenMP</span>
+          <span class="tag">CUDA</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/monprofil/OptimHPC" target="_blank" class="project-link">
+            Voir sur GitHub
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15,3 21,3 21,9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
+          <a href="#demo" class="project-link secondary">
+            Démo
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="5,3 19,12 5,21"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h2>DataViz Énergie</h2>
+          <div class="project-icon">📊</div>
+        </div>
+        <p class="project-description">
+          Dashboard interactif pour la visualisation de données énergétiques. Interface web moderne permettant l'analyse en temps réel de performances énergétiques et l'aide à la décision.
+        </p>
+        <div class="project-tags">
+          <span class="tag">React</span>
+          <span class="tag">D3.js</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">PostgreSQL</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/monprofil/DataVizEnergie" target="_blank" class="project-link">
+            Voir sur GitHub
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15,3 21,3 21,9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
+          <a href="#live-demo" class="project-link secondary">
+            Voir la démo
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+              <polyline points="10,17 15,12 10,7"/>
+              <path d="M15 12H3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card coming-soon">
+        <div class="coming-badge">En développement</div>
+        <div class="project-header">
+          <h2>ML-Physics</h2>
+          <div class="project-icon">🤖</div>
+        </div>
+        <p class="project-description">
+          Intégration de techniques d'apprentissage automatique pour accélérer les simulations physiques. Projet de recherche combinant réseaux de neurones et méthodes numériques traditionnelles.
+        </p>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">TensorFlow</span>
+          <span class="tag">JAX</span>
+          <span class="tag">Physics-Informed</span>
+        </div>
+      </div>
+
     </div>
 
-    <div class="project-card">
-      <h2>OptimHPC</h2>
-      <p>Optimisation d'algorithmes parallèles sur architecture multi-GPU pour applications industrielles.</p>
-      <p class="tags">C++, CUDA, HPC</p>
-      <a href="https://github.com/monprofil/OptimHPC" target="_blank">Voir sur GitHub →</a>
+    <!-- Call to action -->
+    <div class="contact-cta">
+      <h3>Intéressé par mes projets ?</h3>
+      <p>N'hésitez pas à me contacter pour discuter de collaborations ou pour en savoir plus !</p>
+      <a href="index.html#contact" class="cta-button">
+        <span>Me contacter</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="m9 18 6-6-6-6"/>
+        </svg>
+      </a>
     </div>
-
-    <div class="project-card">
-      <h2>BlogMath</h2>
-      <p>Un générateur de blog scientifique statique écrit en Python, pour partager réflexions et contenus mathématiques.</p>
-      <p class="tags">Python, Markdown, Jinja2</p>
-      <a href="https://github.com/monprofil/BlogMath" target="_blank">Voir sur GitHub →</a>
-    </div>
-
-    <!-- Tu peux ajouter ici d'autres projets -->
 
   </main>
 
+  <script>
+    // Animation au scroll pour les éléments tardifs
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observer les éléments à animer
+    document.addEventListener('DOMContentLoaded', () => {
+      // Smooth scroll pour les liens
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Effet parallax léger sur les cartes
+      window.addEventListener('scroll', () => {
+        const cards = document.querySelectorAll('.project-card');
+        cards.forEach((card, index) => {
+          const rect = card.getBoundingClientRect();
+          const scrolled = window.pageYOffset;
+          const rate = scrolled * -0.5;
+          
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            card.style.transform = `translateY(${rate * 0.02}px)`;
+          }
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
-

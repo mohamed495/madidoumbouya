@@ -5,180 +5,275 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mon CV – Mohamed Doumbouya</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="modern-style.css" />
   <style>
-    :root {
-      --bg: #fefefe;
-      --text: #1a1a1a;
-      --link: #0077cc;
-      --accent: #005fa3;
+    /* Styles améliorés pour la page CV */
+    .cv-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 120px 20px 40px;
+      min-height: 100vh;
     }
 
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .dark-mode {
-      --bg: #121212;
-      --text: #f0f0f0;
-      --link: #66aaff;
-    }
-
-    nav a.active {
-      color: var(--link);
-      font-weight: bold;
-      border-bottom: 2px solid var(--link);
-    }
-
-    .toggle-theme {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: 2px solid #ccc;
-      border-radius: 20px;
-      padding: 0.4rem 1rem;
-      font-size: 1rem;
-      cursor: pointer;
-      z-index: 1000;
-    }
-
-    .navbar {
-      background-color: #ffffff;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      flex-wrap: wrap;
-    }
-
-    .brand {
-      font-weight: bold;
-      font-size: 1rem;
-      color: var(--link);
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--text);
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--link);
-    }
-
-    .cv-section {
-      max-width: 850px;
-      margin: 3rem auto;
-      padding: 2rem;
-      background: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    .cv-header {
       text-align: center;
+      margin-bottom: 40px;
     }
 
-    .cv-section h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+    .cv-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    .cv-section p {
-      font-size: 1rem;
-      color: #333;
+    .cv-header p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 30px;
     }
 
-    .cv-frame {
-      margin-top: 2rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
+    .cv-actions {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
     }
 
     .download-btn {
-      margin-top: 2rem;
-    }
-
-    .download-btn a {
-      background-color: var(--link);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
-      padding: 0.8rem 1.6rem;
+      padding: 12px 24px;
+      border-radius: 25px;
       text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
-      transition: background 0.3s ease;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
     }
 
-    .download-btn a:hover {
-      background-color: var(--accent);
+    .download-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
     }
 
+    .fullscreen-btn {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #333;
+      padding: 12px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .fullscreen-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .cv-viewer {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .cv-viewer iframe {
+      width: 100%;
+      height: 800px;
+      border: none;
+      display: block;
+    }
+
+    .toggle-theme-btn {
+      position: fixed;
+      top: 90px;
+      right: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #333;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .toggle-theme-btn:hover {
+      transform: scale(1.1);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Mode sombre */
+    .dark-mode {
+      background: linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%);
+      color: white;
+    }
+
+    .dark-mode .cv-header p {
+      color: #ccc;
+    }
+
+    .dark-mode .cv-viewer {
+      background: #2d2d44;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .dark-mode .fullscreen-btn {
+      color: white;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .dark-mode .toggle-theme-btn {
+      color: white;
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
-      nav {
+      .cv-container {
+        padding: 100px 15px 30px;
+      }
+
+      .cv-header h1 {
+        font-size: 2rem;
+      }
+
+      .cv-actions {
         flex-direction: column;
-        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .cv-viewer iframe {
+        height: 600px;
+      }
+
+      .toggle-theme-btn {
+        top: 80px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+      }
+    }
+
+    /* Animation d'entrée */
+    .cv-viewer {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideInUp 0.8s ease forwards;
+    }
+
+    @keyframes slideInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .cv-header {
+      opacity: 0;
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
       }
     }
   </style>
 </head>
 <body>
+
   <header class="navbar">
-    <div class="nav-container">
-      <div class="brand">
-        <a href="index.html">Mohamed <span class="highlight">DOUMBOUYA</span></a>
-      </div>
-      <nav class="nav-links">
-        <a href="about.html">À propos</a>
-        <a href="cv.html">CV</a>
-        <a href="projects.html">Projets</a>
-        <a href="blog.html">Blog</a>
-        <a href="index.html#contact">Contact</a>
-      </nav>
+    <div class="brand">
+      <a href="index.html">Mohamed <span class="highlight">Doumbouya</span> — <span class="location">Pau</span></a>
     </div>
+    <nav>
+      <a href="about.html">À propos</a>
+      <a href="projects.html">Projets</a>
+      <a href="blog.html">Blog</a>
+      <a href="cv.html" class="active">CV</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
   </header>
 
-  <button class="toggle-theme" onclick="toggleDarkMode()">🌙</button>
+  <button class="toggle-theme-btn" onclick="toggleDarkMode()">🌙</button>
 
-  <main class="cv-section">
-    <h1>Mon CV</h1>
-    <p>Consultez mon CV ci-dessous ou téléchargez le en PDF.</p>
-
-    <div class="cv-frame">
-      <iframe src="cv.pdf" title="CV de Mohamed Doumbouya"></iframe>
+  <main class="cv-container">
+    <div class="cv-header">
+      <h1>Mon CV</h1>
+      <p>Découvrez mon parcours professionnel et mes compétences</p>
     </div>
 
-    <div class="download-btn">
-      <a href="cv.pdf" download>📄 Télécharger le CV (PDF)</a>
+    <div class="cv-actions">
+      <a href="cv.pdf" download class="download-btn">
+        📄 Télécharger le CV (PDF)
+      </a>
+      <button class="fullscreen-btn" onclick="openFullscreen()">
+        🔍 Voir en plein écran
+      </button>
+    </div>
+
+    <div class="cv-viewer" id="cvViewer">
+      <iframe src="cv.pdf" title="CV de Mohamed Doumbouya" id="cvFrame"></iframe>
     </div>
   </main>
 
   <script>
-    // Lien actif dans la navbar
-    const links = document.querySelectorAll('nav a');
-    links.forEach(link => {
-      if (link.href === window.location.href) {
-        link.classList.add('active');
-      }
-    });
+    // Mode sombre
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      const btn = document.querySelector('.toggle-theme-btn');
+      btn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
 
-    // Scroll fluide
+    // Plein écran
+    function openFullscreen() {
+      const cvViewer = document.getElementById('cvViewer');
+      if (cvViewer.requestFullscreen) {
+        cvViewer.requestFullscreen();
+      } else if (cvViewer.webkitRequestFullscreen) {
+        cvViewer.webkitRequestFullscreen();
+      } else if (cvViewer.msRequestFullscreen) {
+        cvViewer.msRequestFullscreen();
+      }
+    }
+
+    // Initialisation
+    window.onload = () => {
+      // Charger le thème sauvegardé
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+        document.querySelector('.toggle-theme-btn').textContent = '☀️';
+      }
+
+      // Marquer le lien actif
+      const links = document.querySelectorAll('nav a');
+      links.forEach(link => {
+        if (link.href === window.location.href) {
+          link.classList.add('active');
+        }
+      });
+    };
+
+    // Scroll fluide pour les liens ancres
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -189,17 +284,12 @@
       });
     });
 
-    // Mode sombre
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-    }
-
-    window.onload = () => {
-      if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-mode');
-      }
+    // Ajuster la hauteur de l'iframe selon le contenu (optionnel)
+    document.getElementById('cvFrame').onload = function() {
+      // Ici vous pourriez ajuster la hauteur automatiquement si nécessaire
+      console.log('CV chargé avec succès');
     };
   </script>
+
 </body>
 </html>

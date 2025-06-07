@@ -5,63 +5,300 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog – Mohamed Doumbouya</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="modern-style.css" />
   <style>
-    .blog-two-column {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 2rem;
+    /* Styles pour la page Blog */
+    body {
+      background: #f8fafc;
+      min-height: 100vh;
+    }
+
+    .blog-container {
       max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      margin: 0 auto;
+      padding: 120px 20px 60px;
+    }
+
+    .blog-header {
+      text-align: center;
+      margin-bottom: 60px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .blog-header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+    }
+
+    .blog-header p {
+      font-size: 1.2rem;
+      color: #64748b;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .blog-filters {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease 0.2s forwards;
+    }
+
+    .filter-btn {
+      background: white;
+      border: 2px solid #e2e8f0;
+      color: #64748b;
+      padding: 12px 24px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .filter-btn:hover {
+      border-color: #667eea;
+      color: #667eea;
+      transform: translateY(-2px);
+    }
+
+    .filter-btn.active {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-color: transparent;
+      color: white;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
     }
 
     .blog-column {
-      flex: 1 1 48%;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards;
     }
 
-    .blog-column h2 {
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-      color: #333;
+    .blog-column:nth-child(1) { animation-delay: 0.3s; }
+    .blog-column:nth-child(2) { animation-delay: 0.4s; }
+
+    .column-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #e2e8f0;
+    }
+
+    .column-header h2 {
+      font-size: 1.8rem;
+      color: #1e293b;
+      margin: 0;
+    }
+
+    .column-icon {
+      font-size: 1.5rem;
     }
 
     .post-card {
-      background: #fff;
-      padding: 1rem 1.2rem;
-      margin-bottom: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.05);
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s ease;
+    }
+
+    .post-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      border-color: #667eea;
+    }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .post-meta time {
+      color: #64748b;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .coming-badge {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
     }
 
     .post-card h3 {
-      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+      color: #1e293b;
+      margin-bottom: 12px;
+      line-height: 1.4;
     }
 
     .post-card p {
-      font-size: 0.95rem;
-      color: #444;
+      color: #64748b;
+      line-height: 1.6;
+      margin-bottom: 15px;
     }
 
-    .post-card a {
-      display: inline-block;
-      margin-top: 0.5rem;
-      color: #0077cc;
-      font-weight: bold;
+    .read-more {
+      color: #667eea;
       text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
     }
 
-    .post-card a:hover {
+    .read-more:hover {
+      color: #764ba2;
       text-decoration: underline;
     }
 
+    .coming-soon {
+      opacity: 0.7;
+      border-style: dashed;
+    }
+
+    .coming-soon:hover {
+      transform: none;
+      border-color: #f59e0b;
+    }
+
+    .newsletter-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      color: white;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease 0.6s forwards;
+    }
+
+    .newsletter-section h3 {
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+    }
+
+    .newsletter-section p {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      opacity: 0.9;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 15px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+    }
+
+    .newsletter-form input::placeholder {
+      color: #94a3b8;
+    }
+
+    .newsletter-form button {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      padding: 12px 25px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .newsletter-form button:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
-      .blog-two-column {
-        flex-direction: column;
+      .blog-container {
+        padding: 100px 15px 40px;
       }
 
-      .blog-column {
-        flex: 1 1 100%;
+      .blog-header h1 {
+        font-size: 2.5rem;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .newsletter-section {
+        padding: 30px 25px;
+      }
+
+      .blog-filters {
+        gap: 10px;
+      }
+
+      .filter-btn {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .blog-header h1 {
+        font-size: 2rem;
+      }
+
+      .post-card {
+        padding: 20px;
       }
     }
   </style>
@@ -70,62 +307,213 @@
 
   <header class="navbar">
     <div class="brand">
-      <a href="index.html">Mohamed <span class="highlight">Doumbouya</span></a>
+      <a href="index.html">Mohamed <span class="highlight">Doumbouya</span> — <span class="location">Pau</span></a>
     </div>
     <nav>
       <a href="about.html">À propos</a>
-      <a href="cv.html">CV</a>
       <a href="projects.html">Projets</a>
       <a href="blog.html" class="active">Blog</a>
+      <a href="cv.html">CV</a>
       <a href="index.html#contact">Contact</a>
     </nav>
   </header>
 
-  <main>
-    <h1 style="text-align: center; margin: 2rem 0;">Blog personnel</h1>
+  <main class="blog-container">
+    
+    <!-- Header -->
+    <section class="blog-header">
+      <h1>Blog personnel</h1>
+      <p>Mes réflexions entre mathématiques, technologie, philosophie et société</p>
+    </section>
 
-    <div class="blog-two-column">
+    <!-- Filtres -->
+    <div class="blog-filters">
+      <button class="filter-btn active" data-category="all">
+        🌟 Tous les articles
+      </button>
+      <button class="filter-btn" data-category="lectures">
+        📚 Lectures
+      </button>
+      <button class="filter-btn" data-category="reflexions">
+        🧠 Réflexions
+      </button>
+    </div>
 
-      <!-- Colonne gauche : Lectures -->
-      <section class="blog-column">
-        <h2>📚 Lectures</h2>
-
-        <div class="post-card">
-          <h3>“Peau noire, masques blancs” – Fanon</h3>
-          <p><small>12 mai 2025</small></p>
+    <!-- Contenu du blog -->
+    <div class="blog-grid">
+      
+      <!-- Colonne Lectures -->
+      <section class="blog-column" data-category="lectures">
+        <div class="column-header">
+          <span class="column-icon">📚</span>
+          <h2>Lectures</h2>
+        </div>
+        
+        <article class="post-card" data-category="lectures">
+          <div class="post-meta">
+            <time datetime="2025-05-12">12 mai 2025</time>
+          </div>
+          <h3>"Peau noire, masques blancs" – Fanon</h3>
           <p>Réflexions sur les effets psychologiques du colonialisme à travers Fanon.</p>
-          <a href="articles/fanon.html">Lire le commentaire →</a>
-        </div>
+          <a href="articles/fanon.html" class="read-more">
+            Lire le commentaire →
+          </a>
+        </article>
 
-        <div class="post-card">
-          <h3>“La condition noire” – A. Mbembe</h3>
-          <p><small>4 avril 2025</small></p>
-          <p>Analyse critique d’un essai majeur sur l’identité noire.</p>
-          <a href="articles/mbembe.html">Lire le commentaire →</a>
-        </div>
+        <article class="post-card" data-category="lectures">
+          <div class="post-meta">
+            <time datetime="2025-04-04">4 avril 2025</time>
+          </div>
+          <h3>"La condition noire" – A. Mbembe</h3>
+          <p>Analyse critique d'un essai majeur sur l'identité noire.</p>
+          <a href="articles/mbembe.html" class="read-more">
+            Lire le commentaire →
+          </a>
+        </article>
+
+        <article class="post-card coming-soon" data-category="lectures">
+          <div class="post-meta">
+            <time>Bientôt</time>
+            <span class="coming-badge">En préparation</span>
+          </div>
+          <h3>"Gouverner par le chaos" – A. Mbembe</h3>
+          <p>Lecture critique du dernier essai d'Achille Mbembe sur les transformations du capitalisme contemporain.</p>
+        </article>
       </section>
 
-      <!-- Colonne droite : Réflexions -->
-      <section class="blog-column">
-        <h2>🧠 Réflexions</h2>
-
-        <div class="post-card">
+      <!-- Colonne Réflexions -->
+      <section class="blog-column" data-category="reflexions">
+        <div class="column-header">
+          <span class="column-icon">🧠</span>
+          <h2>Réflexions</h2>
+        </div>
+        
+        <article class="post-card" data-category="reflexions">
+          <div class="post-meta">
+            <time datetime="2025-06-06">6 juin 2025</time>
+          </div>
           <h3>Penser avec les maths</h3>
-          <p><small>6 juin 2025</small></p>
           <p>Comment les maths influencent ma pensée, mes raisonnements et ma créativité.</p>
-          <a href="articles/penser-avec-les-maths.html">Lire l’article →</a>
-        </div>
+          <a href="articles/penser-avec-les-maths.html" class="read-more">
+            Lire l'article →
+          </a>
+        </article>
 
-        <div class="post-card">
-          <h3>L’Afrique et l’autonomie technologique</h3>
-          <p><small>21 mai 2025</small></p>
-          <p>Pourquoi l’indépendance technologique est essentielle pour l’Afrique.</p>
-          <a href="articles/afrique-technologie.html">Lire l’article →</a>
-        </div>
+        <article class="post-card" data-category="reflexions">
+          <div class="post-meta">
+            <time datetime="2025-05-21">21 mai 2025</time>
+          </div>
+          <h3>L'Afrique et l'autonomie technologique</h3>
+          <p>Pourquoi l'indépendance technologique est essentielle pour l'Afrique.</p>
+          <a href="articles/afrique-technologie.html" class="read-more">
+            Lire l'article →
+          </a>
+        </article>
+
+        <article class="post-card coming-soon" data-category="reflexions">
+          <div class="post-meta">
+            <time>Bientôt</time>
+            <span class="coming-badge">En préparation</span>
+          </div>
+          <h3>HPC et changement climatique</h3>
+          <p>Comment le calcul haute performance peut contribuer à la lutte contre le réchauffement climatique.</p>
+        </article>
       </section>
 
     </div>
+
+    <!-- Newsletter -->
+    <div class="newsletter-section">
+      <h3>📬 Restez informé</h3>
+      <p>Recevez une notification à chaque nouvel article</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Votre adresse email" required>
+        <button type="submit">S'abonner</button>
+      </form>
+    </div>
+
   </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Filtrage des articles
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const articles = document.querySelectorAll('.post-card');
+      const columns = document.querySelectorAll('.blog-column');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Mettre à jour les boutons actifs
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const category = btn.dataset.category;
+
+          if (category === 'all') {
+            // Afficher toutes les colonnes et tous les articles
+            columns.forEach(col => {
+              col.style.display = 'block';
+              col.style.opacity = '0';
+              col.style.transform = 'translateY(20px)';
+              setTimeout(() => {
+                col.style.transition = 'all 0.6s ease';
+                col.style.opacity = '1';
+                col.style.transform = 'translateY(0)';
+              }, 100);
+            });
+          } else {
+            // Masquer toutes les colonnes d'abord
+            columns.forEach(col => col.style.display = 'none');
+            // Afficher seulement la colonne correspondante
+            const targetColumn = document.querySelector(`.blog-column[data-category="${category}"]`);
+            if (targetColumn) {
+              targetColumn.style.display = 'block';
+              targetColumn.style.opacity = '0';
+              targetColumn.style.transform = 'translateY(20px)';
+              setTimeout(() => {
+                targetColumn.style.transition = 'all 0.6s ease';
+                targetColumn.style.opacity = '1';
+                targetColumn.style.transform = 'translateY(0)';
+              }, 100);
+            }
+          }
+        });
+      });
+
+      // Newsletter form
+      const newsletterForm = document.querySelector('.newsletter-form');
+      newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = e.target.querySelector('input[type="email"]').value;
+        
+        // Animation de succès
+        const button = e.target.querySelector('button');
+        const originalText = button.textContent;
+        button.textContent = '✓ Inscrit !';
+        button.style.background = 'rgba(39, 174, 96, 0.8)';
+        
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.style.background = '';
+          e.target.reset();
+        }, 2000);
+      });
+
+      // Smooth scroll pour les liens
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
