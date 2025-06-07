@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Page d'accueil -->
+  <url>
+    <loc>https://mohamed495.github.io/madidoumbouya/</loc>
+    <lastmod>2025-06-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Page À propos -->
+  <url>
+    <loc>https://mohamed495.github.io/madidoumbouya/about.html</loc>
+    <lastmod>2025-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Page Projets -->
+  <url>
+    <loc>https://mohamed495.github.io/madidoumbouya/projects.html</loc>
+    <lastmod>2025-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Page Blog -->
+  <url>
+    <loc>https://mohamed495.github.io/madidoumbouya/blog.html</loc>
+    <lastmod>2025-06-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Page CV -->
+  <url>
+    <loc>https://mohamed495.github.io/madidoumbouya/cv.html</loc>
+    <lastmod>2025-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Articles de blog (ajoutez au fur et à mesure) -->
+  <url>
+    <loc>https://mohamed495.github.io/madidoumbouya/articles/penser-avec-les-maths.html</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mohamed495.github.io/madidoumbouya/articles/afrique-technologie.html</loc>
+    <lastmod>2025-05-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mohamed495.github.io/madidoumbouya/articles/fanon.html</loc>
+    <lastmod>2025-05-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mohamed495.github.io/madidoumbouya/articles/mbembe.html</loc>
+    <lastmod>2025-04-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+</urlset>

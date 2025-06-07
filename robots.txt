@@ -1,0 +1,29 @@
+# robots.txt pour mohamed495.github.io/madidoumbouya
+
+# Autoriser tous les robots à indexer tout le site
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://mohamed495.github.io/madidoumbouya/sitemap.xml
+
+# Optionnel : bloquer certains fichiers sensibles si nécessaire
+# Disallow: /private/
+# Disallow: *.pdf$
+
+# Améliorer le crawl
+Crawl-delay: 1
+
+# Instructions spécifiques pour les principaux moteurs
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Bloquer les robots indésirables (optionnel)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
